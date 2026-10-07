@@ -5,7 +5,7 @@ layout: halftone-homepage
 <section id="about" class="about">
   <h2>About</h2>
   <div class="intro">
-    <p>Hi! I am <strong>{{ site.title }}</strong>, a research student at <a href="{{ site.affiliation_link }}">{{ site.affiliation }}</a>, working on <strong>Embodied AI</strong>, <strong>Bimanual Manipulation</strong>, and <strong>Dexterous Manipulation</strong>.</p>
+    <p>Hi! I am <strong>{{ site.title }}</strong>, a research student at <a href="{{ site.affiliation_link }}">{{ site.affiliation }}</a>, working on <strong>Bimanual Manipulation</strong> and <strong>Dexterous Manipulation</strong>.</p>
     <p>Feel free to reach out if you are interested in collaboration or potential opportunities.</p>
   </div>
   {% if site.avatar %}<img class="portrait" src="{{ site.avatar | relative_url }}" alt="Portrait of {{ site.title }}" width="144" height="144" decoding="async">{% endif %}

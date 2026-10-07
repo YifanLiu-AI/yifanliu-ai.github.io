@@ -17,6 +17,7 @@
 - 优化排版与字号：页面最大宽度 1280px，标题列 160px，简介 19px、经历标题 27px。手机头像与 About 标题并排，简介独占整行（18px），避免正文挤在头像左边反复折行。
 - GitHub 与 gmail 合并为右上角并排链接组；删除简介下方重复的 GitHub。手机同样与左上 Logo 保持在首行，极窄屏缩小 Logo，链接目标不变。
 - About、News、Experience 及经历标题的半调网点与 YIFAN Logo 共用同一玫红；正文、背景网点、头像和校徽不改色。无 JS 时的标题也使用同色。
+- 简介删除 Embodied AI，研究方向只保留 Bimanual Manipulation and Dexterous Manipulation。
 
 发布前验收通过：Jekyll 构建无布局警告，所有本地资源存在，无未解析模板，无 noindex，无 Research Interests。浏览器确认半调已绘制、正文为深色原生文字、全部图片加载、无横向溢出或控制台错误。
 回退基线：6835012（发布前 main）。发布后继续核对 Pages 部署、线上资源及实际页面。
