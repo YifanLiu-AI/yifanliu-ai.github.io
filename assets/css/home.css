@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Playfair Display";
-  src: url("../fonts/playfair-display-bold.ttf") format("truetype");
-  font-weight: 700;
+  src: url("../fonts/playfair-display-variable.ttf") format("truetype");
+  font-weight: 400 900;
   font-style: normal;
   font-display: swap;
 }
@@ -10,15 +10,15 @@ body.op-home {
   --ink: #1c201e;
   --muted: #606662;
   --line: #e6e9e6;
-  --accent: #806000;
-  --robot-yellow: #d8b523;
+  --accent: #873c55;
+  --robot-yellow: #873c55;
   margin: 0;
   padding: 0;
   background: #ffffff;
   background-attachment: fixed;
   color: var(--ink);
   font-family: "Playfair Display", Georgia, serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 18px;
   line-height: 1.7;
   letter-spacing: 0;
@@ -53,13 +53,12 @@ body.op-home {
 .cursor-dot.is-interactive::before { transform: scale(1.6); opacity: .65; }
 .cursor-dot.is-pressed::before { transform: scale(.8); }
 @media (hover: hover) and (pointer: fine) {
-  .has-dot-cursor, .has-dot-cursor * { cursor: none !important; }
-  .has-dot-cursor .cursor-dot { visibility: visible; }
+  .has-dot-cursor .cursor-dot { visibility: hidden; }
 }
 @media (prefers-reduced-motion: reduce) {
   .keyword-highlight, .cursor-dot::before { transition: none; }
 }
-.op-home *:not(i) { font-family: "Playfair Display", Georgia, serif !important; font-weight: 700 !important; }
+.op-home *:not(i) { font-family: "Playfair Display", Georgia, serif !important; }
 .op-home a { color: var(--accent); text-decoration: none; }
 .op-home a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .op-home a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
@@ -99,7 +98,7 @@ body.op-home {
   grid-template-areas: "robot content" "robot content";
   gap: 16px 28px;
   width: min(1120px, calc(100% - 48px));
-  margin: 0 24px;
+  margin: 0 auto;
   padding: 28px 0 0;
   border-top: 0;
   background: transparent;
@@ -140,7 +139,7 @@ body.op-home {
 .about-intro { min-width: 0; font-size: 18px; line-height: 1.75; }
 .about-intro p { margin: 0 0 12px; }
 .about-intro p:last-child { margin-bottom: 0; }
-.about-intro a { text-decoration: underline; text-decoration-color: #d6c995; text-underline-offset: 3px; }
+.about-intro a { text-decoration: underline; text-decoration-color: #caa7b4; text-underline-offset: 3px; }
 .about-row { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 16px 24px; align-items: start; margin-bottom: 28px; }
 .op-home .about-row .profile-sidebar { display: block; width: auto; margin: 4px 0 0; text-align: center; }
 .about-row .profile-avatar { width: 80px; height: 80px; margin: 0 auto; }
@@ -227,9 +226,25 @@ body.op-home {
 @media (min-width: 761px) {
   .op-home .home-hero { min-height: calc(100svh - 256px); }
 }
-.op-home h2 { font-size: 22px; }
+.op-home h2 { font-size: 22px; font-weight: 700; margin-top: 36px; }
+.op-home strong, .news-highlight { font-weight: 700; }
 .section-label, .profile-contact, .news-date { font-size: 14px; }
 .news-list li { grid-template-columns: 100px 72px minmax(0, 1fr); font-size: 17px; }
 .experience-info, .experience-info .experience-advisor { font-size: 16px; }
 .experience-info .experience-role, .homepage-content > ul { font-size: 17px; }
 .experience-info .experience-period { font-size: 14px; }
+@media (max-width: 760px) {
+  body.op-home { font-size: 16px; }
+  .op-home .wrapper { padding-inline: 10px; }
+  .about-intro { font-size: 17px; line-height: 1.7; }
+  .about-row { grid-template-columns: 80px minmax(0, 1fr); gap: 18px; }
+  .profile-contact { flex-direction: column; gap: 8px; }
+  .news-list li { grid-template-columns: 90px 72px minmax(0, 1fr); font-size: 16px; margin-bottom: 22px; }
+  .experience-heading { gap: 16px; }
+  .experience-logo { width: 130px; }
+  .experience-info, .experience-info .experience-advisor { font-size: 15px; }
+}
+@media (max-width: 400px) {
+  .about-row { grid-template-columns: minmax(0, 1fr); }
+  .profile-contact { flex-direction: row; }
+}
