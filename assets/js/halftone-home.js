@@ -1,10 +1,11 @@
 /* A continuous page-wide screen for display type and background. Body copy,
    dates, affiliation and links keep native, high-contrast text for readability.
-   Photos and institutional logos remain original, readable image assets. */
+   The portrait shares the screen; institutional logos remain clear originals. */
 (() => {
   const canvas = document.querySelector('#halftone-name');
   if (!canvas) return;
   const parent = canvas.parentElement;
+  const portrait = parent.querySelector('.portrait');
   let pending;
   let lastSize = '';
 
@@ -13,7 +14,8 @@
     const height = Math.round(parent.clientHeight);
     if (!width || !height) return;
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
-    const sizeKey = `${width}/${height}/${ratio}`;
+    const photoReady = portrait && portrait.complete && portrait.naturalWidth > 0;
+    const sizeKey = `${width}/${height}/${ratio}/${Boolean(photoReady)}`;
     if (sizeKey === lastSize) return;
     const mobile = width < 768;
     const raster = document.createElement('canvas');
@@ -73,11 +75,37 @@
     source.save();
     source.translate(nameLeft + 4, nameTop);
     source.scale(nameScale, 1);
+    const stagger = [0,.085,-.035,.12,.025,0,.07,-.045,.105];
+    let characterIndex = 0;
     lines.forEach((line, lineIndex) => {
       const baseline = nameBox.height * (mobile ? .475 + lineIndex * .495 : .89);
-      source.fillText(line, 0, baseline);
+      [...line].forEach((letter, index) => {
+        const x = source.measureText(line.slice(0, index)).width;
+        const offset = stagger[characterIndex % stagger.length] * fontSize;
+        source.fillText(letter, x, baseline + offset);
+        characterIndex++;
+      });
+      if (mobile) characterIndex = 6;
     });
     source.restore();
+
+    const headingZones = [...parent.querySelectorAll('h2,h3')].map(element => {
+      const box = element.getBoundingClientRect();
+      return {left:box.left-bounds.left,right:box.right-bounds.left,top:box.top-bounds.top,height:box.height};
+    });
+    let photo;
+    if (photoReady) {
+      const box = portrait.getBoundingClientRect();
+      const imageCanvas = document.createElement('canvas');
+      imageCanvas.width = Math.round(box.width);
+      imageCanvas.height = Math.round(box.height);
+      const imageContext = imageCanvas.getContext('2d', {willReadFrequently:true});
+      const cover = Math.max(box.width / portrait.naturalWidth, box.height / portrait.naturalHeight);
+      const imageWidth = portrait.naturalWidth * cover;
+      const imageHeight = portrait.naturalHeight * cover;
+      imageContext.drawImage(portrait, (box.width-imageWidth)/2, (box.height-imageHeight)/2, imageWidth, imageHeight);
+      photo = {left:box.left-bounds.left,top:box.top-bounds.top,width:imageCanvas.width,height:imageCanvas.height,pixels:imageContext.getImageData(0,0,imageCanvas.width,imageCanvas.height).data};
+    }
 
     const pixels = source.getImageData(0, 0, width, height).data;
     const step = mobile ? 1.8 : 2.4;
@@ -95,8 +123,27 @@
         const column = .5 + .5 * Math.sin(x * .032 + .35 * Math.sin(y * .012));
         const broad = .5 + .5 * Math.sin(x * .009 - y * .005);
         const paperTone = .01 + .026 * column + .013 * broad;
-        const inkGain = .82 + .06 * column + .03 * broad;
-        const tone = paperTone + Math.pow(mask, .65) * inkGain;
+        let inkGain = .82 + .06 * column + .03 * broad;
+        if (y >= nameTop && y <= nameTop + nameBox.height + 16 && x >= nameLeft && x <= nameLeft + nameBox.width) {
+          const row = mobile && y-nameTop > nameBox.height*.55 ? 1 : 0;
+          const rowTop = nameTop + nameBox.height*(mobile ? .075 + row*.495 : .18);
+          const progress = Math.max(0,Math.min(1,(y-rowTop)/(fontSize*.78)));
+          inkGain *= 1 - .68*progress;
+        } else if (mask > .01) {
+          for (const zone of headingZones) {
+            if (x>=zone.left && x<=zone.right && y>=zone.top && y<=zone.top+zone.height) {
+              inkGain *= 1-.35*Math.max(0,Math.min(1,(y-zone.top)/zone.height));
+              break;
+            }
+          }
+        }
+        let tone = paperTone + Math.pow(mask, .65) * inkGain;
+        if (photo && x>=photo.left && x<photo.left+photo.width && y>=photo.top && y<photo.top+photo.height) {
+          const px = Math.floor(x-photo.left), py = Math.floor(y-photo.top);
+          const offset = (py*photo.width+px)*4;
+          const luminance = (.2126*photo.pixels[offset]+.7152*photo.pixels[offset+1]+.0722*photo.pixels[offset+2])/255;
+          tone = paperTone + .94*Math.pow(1-luminance,.85);
+        }
         context.beginPath();
         context.arc(x, y, step * .48 * Math.sqrt(tone), 0, Math.PI * 2);
         context.fill();
@@ -104,12 +151,14 @@
     }
     lastSize = sizeKey;
     parent.classList.add('screen-ready');
+    parent.classList.toggle('portrait-ready', Boolean(photo));
   }
 
   Promise.all([
     document.fonts.load('40px Anton'),
     document.fonts.load('18px Barlow'),
-    document.fonts.ready
+    document.fonts.ready,
+    portrait ? portrait.decode().catch(() => {}) : Promise.resolve()
   ]).then(() => {
     draw();
     const observer = new ResizeObserver(() => {

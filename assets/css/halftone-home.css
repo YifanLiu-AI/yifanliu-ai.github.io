@@ -20,6 +20,7 @@ img{max-width:100%}
 .sheet>header,.sheet>main,.sheet>footer{position:relative;z-index:1}
 .sheet.screen-ready :is(h1,h2,h3){color:transparent;text-decoration-color:transparent}
 .sheet.screen-ready a:focus-visible{outline-color:var(--ink)}
+.sheet.portrait-ready .portrait{opacity:0}
 .masthead{height:78px;display:flex;align-items:center;gap:40px;border-bottom:1px solid var(--ink)}
 .wordmark{font:26px/1 var(--display);text-decoration:none;letter-spacing:-.5px}
 nav{display:flex;gap:30px;margin-left:auto;font-size:15px}
