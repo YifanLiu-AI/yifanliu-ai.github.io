@@ -233,9 +233,38 @@ body.op-home {
 .experience-info, .experience-info .experience-advisor { font-size: 16px; }
 .experience-info .experience-role, .homepage-content > ul { font-size: 17px; }
 .experience-info .experience-period { font-size: 14px; }
+@media (min-width: 761px) {
+  body.op-home { height: auto; overflow: auto; }
+  .op-home .wrapper { height: auto; padding-top: 40px; grid-template-columns: 172px minmax(0, 1fr); gap: 40px; }
+  .op-home .homepage-content { overflow: visible; padding-right: 0; }
+  .op-home .home-hero { position: sticky; top: 40px; height: min(660px, calc(100svh - 80px)); min-height: 400px; }
+  .hero-identity { inset: 0; width: auto; transform: none; }
+  .op-home .hero-identity h1 {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-size: clamp(84px, 8vw, 112px);
+    font-weight: 700;
+    letter-spacing: .045em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--accent);
+    background: linear-gradient(100deg, #a75f7b, #873c55 65%, #693449);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-identity p { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); width: 160px; font-size: 12px; }
+}
 @media (max-width: 760px) {
   body.op-home { font-size: 16px; }
-  .op-home .wrapper { padding-inline: 10px; }
+  .op-home .wrapper { padding: 24px 10px 0; }
+  .op-home .home-hero { height: 110px; }
+  .hero-identity { top: 0; width: 100%; }
+  .op-home .hero-identity h1 { color: var(--accent); text-transform: uppercase; letter-spacing: .045em; font-size: 44px; }
+  .hero-identity p { max-width: none; font-size: 12px; }
   .about-intro { font-size: 17px; line-height: 1.7; }
   .about-row { grid-template-columns: 80px minmax(0, 1fr); gap: 18px; }
   .profile-contact { flex-direction: column; gap: 8px; }
