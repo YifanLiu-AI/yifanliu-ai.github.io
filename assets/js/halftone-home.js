@@ -28,6 +28,7 @@
     canvas.height = Math.round(height * ratio);
     context.scale(ratio, ratio);
     const bounds = parent.getBoundingClientRect();
+    const brandInk = getComputedStyle(parent).getPropertyValue('--brand-ink').trim() || '#272b2c';
     source.fillStyle = '#272b2c';
     source.strokeStyle = '#272b2c';
     source.textBaseline = 'alphabetic';
@@ -149,7 +150,10 @@
         const radius = photoDarkness === undefined
           ? step*.48*Math.sqrt(tone)
           : step*(.08 + .40*Math.sqrt(photoDarkness));
-        if (photoDarkness === undefined) context.fillStyle = '#272b2c';
+        if (photoDarkness === undefined) {
+          const inBrand = x >= nameLeft && x <= nameLeft + nameBox.width && y >= nameTop && y <= nameTop + nameBox.height + 16;
+          context.fillStyle = inBrand && mask > .01 ? brandInk : '#272b2c';
+        }
         else {
           const ink = Math.round(180 - 155*Math.pow(photoDarkness,.65));
           context.fillStyle = `rgb(${ink},${ink+3},${ink+4})`;
