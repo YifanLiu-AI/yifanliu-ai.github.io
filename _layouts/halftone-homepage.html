@@ -9,26 +9,19 @@
   <link rel="canonical" href="{{ site.canonical }}">
   <link rel="icon" href="{{ site.favicon | relative_url }}" type="image/png">
   <link rel="preload" href="{{ '/assets/fonts/Anton-Regular.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="{{ '/assets/css/halftone-home.css?v=20261007-portrait-gradient-7' | relative_url }}">
-  <script src="{{ '/assets/js/halftone-home.js?v=20261007-portrait-gradient-7' | relative_url }}" defer></script>
+  <link rel="stylesheet" href="{{ '/assets/css/halftone-home.css?v=20261007-compact-brand-9' | relative_url }}">
+  <script src="{{ '/assets/js/halftone-home.js?v=20261007-compact-brand-9' | relative_url }}" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#about">Skip to content</a>
   <div class="sheet">
     <canvas id="halftone-name" aria-hidden="true"></canvas>
-    <header class="masthead">
-      <a class="wordmark" href="#top" aria-label="Yifan Liu, home">YIFAN LIU</a>
+    <header class="masthead" id="top">
+      <a class="wordmark" href="#top" aria-label="Yifan Liu, home"><h1>YIFAN LIU</h1></a>
       <nav aria-label="Main navigation"><a href="#news">News</a><a href="#experience">Experience</a></nav>
       <a class="contact-link" href="mailto:{{ site.email }}">gmail <span aria-hidden="true">↗</span></a>
     </header>
     <main>
-      <section class="poster" id="top" aria-label="Yifan Liu">
-        <div class="name-art"><h1>YIFAN LIU</h1></div>
-        <div class="identity-caption">
-          <p class="research-focus">Embodied AI · Bimanual Manipulation · Dexterous Manipulation</p>
-          <p class="affiliation">{{ site.position }} · {{ site.affiliation }}</p>
-        </div>
-      </section>
       {{ content }}
     </main>
     <footer><p>YIFAN LIU</p><a href="#top">Back to top <span aria-hidden="true">↑</span></a></footer>

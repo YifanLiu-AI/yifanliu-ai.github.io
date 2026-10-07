@@ -1,6 +1,6 @@
 /* Architecture-poster inspiration, not an official design system.
    DESIGN_VARIANCE: 8 / MOTION_INTENSITY: 3 / VISUAL_DENSITY: 5.
-   Neutral monochrome theme, sharp corners; dots only in the name artwork.
+   Neutral monochrome theme, sharp corners; screened brand, headings and portrait.
    Layers: skip link 2, artwork/fallback 1, ordinary content 0. */
 @font-face{font-family:Anton;src:url('../fonts/Anton-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
 @font-face{font-family:Barlow;src:url('../fonts/Barlow-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
@@ -21,16 +21,15 @@ img{max-width:100%}
 .sheet.screen-ready :is(h1,h2,h3){color:transparent;text-decoration-color:transparent}
 .sheet.screen-ready a:focus-visible{outline-color:var(--ink)}
 .sheet.portrait-ready .portrait{opacity:0}
-.masthead{height:78px;display:flex;align-items:center;gap:40px;border-bottom:1px solid var(--ink)}
-.wordmark{font:26px/1 var(--display);text-decoration:none;letter-spacing:-.5px}
+.masthead{height:84px;display:flex;align-items:center;gap:40px;border-bottom:1px solid var(--ink)}
+.wordmark{display:block;flex-shrink:0;width:180px;height:58px;text-decoration:none}
+.wordmark h1{font:46px/58px var(--display);white-space:nowrap;letter-spacing:-1px}
 nav{display:flex;gap:30px;margin-left:auto;font-size:15px}
 nav a,.contact-link{text-decoration:none}
 .contact-link{font-size:15px}
 .contact-link span{margin-left:6px}
-.poster{position:relative;padding-top:27px}
-.name-art{position:relative;height:340px;margin:14px 0 20px}
-.name-art h1{position:absolute;inset:0;display:flex;align-items:center;font:clamp(80px,19.5vw,280px)/1 var(--display);letter-spacing:-.035em;white-space:nowrap}
-.identity-caption{padding:0 0 26px}
+.poster{position:relative;padding-top:25px}
+.identity-caption{padding:0 0 24px}
 .research-focus{font:700 clamp(22px,2.25vw,29px)/1.5 var(--body)}
 .affiliation{margin-top:14px;font:16px/1.5 var(--body)}
 .about{display:grid;grid-template-columns:180px 1fr 124px;gap:32px;border-top:1px solid var(--ink);padding:28px 0 42px;align-items:start}
@@ -46,6 +45,7 @@ h2{font:42px/1.08 var(--display);letter-spacing:-.02em}
 .news-list li:first-child{padding-top:0}
 .news-list time,.period{font:13px/1.5 'Courier New',monospace}
 .news-list img{width:86px;height:36px;object-fit:contain;filter:grayscale(1);mix-blend-mode:multiply}
+.news-list img.transparent-logo{mix-blend-mode:normal}
 .news-list p{font-size:17px;line-height:1.5}
 .experience-list{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:64px;padding-left:212px}
 .experience-list article+article{padding-left:38px;border-left:1px solid var(--rule)}
@@ -62,9 +62,10 @@ footer{border-top:1px solid var(--ink);padding:22px 0 30px;display:flex;justify-
 footer p{font-family:var(--display);font-size:20px}
 .skip-link{position:absolute;left:16px;top:10px;z-index:2;transform:translateY(-180%);background:var(--ink);color:var(--paper);padding:8px 14px}
 .skip-link:focus{transform:none}
-@media(min-width:1440px){.name-art{height:380px}}
 @media(max-width:1023px){.sheet{padding:0 30px}.masthead{gap:25px}nav{gap:20px}.name-art{height:290px}.about{grid-template-columns:130px 1fr 104px;gap:24px}.portrait{width:104px;height:124px}.news{grid-template-columns:130px 1fr;gap:24px}.news-list li{grid-template-columns:90px 70px 1fr;gap:15px}.news-list img{width:70px}.experience-list{padding-left:154px;gap:25px}.experience-list article+article{padding-left:24px}}
 @media(max-width:767px){.sheet{padding:0 20px}.masthead{height:auto;min-height:70px;flex-wrap:wrap;padding:17px 0 15px;gap:14px}.wordmark{font-size:24px}.contact-link{margin-left:auto}nav{order:3;width:100%;margin:0;justify-content:space-between;gap:12px;font-size:13px}.poster{padding-top:22px}.name-art{height:235px;margin:12px 0 16px}.name-art h1{white-space:normal;font-size:28vw;line-height:1;text-align:left}.about{grid-template-columns:1fr 90px;gap:20px;padding:24px 0 34px}.about h2{grid-column:1/-1}h2{font-size:36px}.intro{font-size:17px}.intro p+p{font-size:15px}.portrait{width:90px;height:114px}.section{padding:29px 0 35px}.news{grid-template-columns:1fr;gap:27px}.news-list li{grid-template-columns:96px 1fr;gap:10px 17px;padding:16px 0}.news-list img{justify-self:end;width:74px;height:28px}.news-list p{grid-column:1/-1;font-size:17px}.experience-list{padding:0;grid-template-columns:1fr;gap:36px;margin-top:24px}.experience-list article+article{border:0;padding:0}.experience-list img{margin-bottom:14px;height:52px;width:180px}.interest-list{grid-template-columns:1fr;gap:30px;margin-top:28px}.interest-list h3{font-size:40px}.interests{padding-bottom:45px}}
 @media(max-width:767px){.research-focus{font-size:21px}.affiliation{font-size:16px}}
+/* Compact brand remains in the header on every breakpoint; no name-only hero. */
+@media(max-width:767px){.masthead{padding:9px 0 14px;gap:10px}.wordmark{width:164px;height:54px}.wordmark h1{font-size:42px;line-height:54px}.poster{padding-top:22px}}
 @media(prefers-reduced-motion:no-preference){a{transition:opacity .15s ease}}
 @media print{.sheet{padding:0}.masthead nav,.contact-link,footer a{display:none}body{print-color-adjust:exact}}

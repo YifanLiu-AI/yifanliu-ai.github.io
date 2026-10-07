@@ -1,5 +1,6 @@
 - date: "2026.09.16"
-  logo: /assets/img/icra27-logo.webp
+  logo: /assets/img/icra27-logo-transparent.png
+  transparent_logo: true
   logo_name: ICRA 2027
   text: A paper I co-authored as <strong>second author</strong> is <strong>under review</strong> for <strong class="news-highlight">ICRA 2027</strong>.
 

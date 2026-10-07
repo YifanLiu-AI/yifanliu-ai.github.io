@@ -64,12 +64,12 @@
     }
     range.detach();
 
-    // Restore the original bold condensed display type, keeping shared dots.
-    const nameBox = parent.querySelector('.name-art').getBoundingClientRect();
+    // The artistic identity is now a compact top-left brand, not a hero block.
+    const nameBox = parent.querySelector('.wordmark').getBoundingClientRect();
     const nameTop = nameBox.top - bounds.top;
     const nameLeft = nameBox.left - bounds.left;
-    const lines = mobile ? ['YIFAN', 'LIU'] : ['YIFAN LIU'];
-    const fontSize = nameBox.height * (mobile ? .50 : .90);
+    const lines = ['YIFAN LIU'];
+    const fontSize = nameBox.height * .95;
     source.font = `${fontSize}px Anton`;
     const nameScale = (nameBox.width - 8) / source.measureText(lines[0]).width;
     source.save();
@@ -78,14 +78,13 @@
     const stagger = [0,.085,-.035,.12,.025,0,.07,-.045,.105];
     let characterIndex = 0;
     lines.forEach((line, lineIndex) => {
-      const baseline = nameBox.height * (mobile ? .475 + lineIndex * .495 : .89);
+      const baseline = nameBox.height * .81;
       [...line].forEach((letter, index) => {
         const x = source.measureText(line.slice(0, index)).width;
         const offset = stagger[characterIndex % stagger.length] * fontSize;
         source.fillText(letter, x, baseline + offset);
         characterIndex++;
       });
-      if (mobile) characterIndex = 6;
     });
     source.restore();
 
@@ -125,10 +124,9 @@
         const paperTone = .01 + .026 * column + .013 * broad;
         let inkGain = .82 + .06 * column + .03 * broad;
         if (y >= nameTop && y <= nameTop + nameBox.height + 16 && x >= nameLeft && x <= nameLeft + nameBox.width) {
-          const row = mobile && y-nameTop > nameBox.height*.55 ? 1 : 0;
-          const rowTop = nameTop + nameBox.height*(mobile ? .075 + row*.495 : .18);
+          const rowTop = nameTop + nameBox.height*.1;
           const progress = Math.max(0,Math.min(1,(y-rowTop)/(fontSize*.78)));
-          inkGain *= 1 - .68*progress;
+          inkGain *= 1 - .55*progress;
         } else if (mask > .01) {
           for (const zone of headingZones) {
             if (x>=zone.left && x<=zone.right && y>=zone.top && y<=zone.top+zone.height) {
@@ -138,14 +136,26 @@
           }
         }
         let tone = paperTone + Math.pow(mask, .65) * inkGain;
+        let photoDarkness;
         if (photo && x>=photo.left && x<photo.left+photo.width && y>=photo.top && y<photo.top+photo.height) {
           const px = Math.floor(x-photo.left), py = Math.floor(y-photo.top);
           const offset = (py*photo.width+px)*4;
           const luminance = (.2126*photo.pixels[offset]+.7152*photo.pixels[offset+1]+.0722*photo.pixels[offset+2])/255;
-          tone = paperTone + .94*Math.pow(1-luminance,.85);
+          photoDarkness = Math.pow(1-luminance,.8);
+          tone = paperTone + .94*photoDarkness;
+        }
+        // Portrait tone controls BOTH dot diameter and ink color depth.
+        // Dark image regions get larger, darker marks; highlights small, pale marks.
+        const radius = photoDarkness === undefined
+          ? step*.48*Math.sqrt(tone)
+          : step*(.08 + .40*Math.sqrt(photoDarkness));
+        if (photoDarkness === undefined) context.fillStyle = '#272b2c';
+        else {
+          const ink = Math.round(180 - 155*Math.pow(photoDarkness,.65));
+          context.fillStyle = `rgb(${ink},${ink+3},${ink+4})`;
         }
         context.beginPath();
-        context.arc(x, y, step * .48 * Math.sqrt(tone), 0, Math.PI * 2);
+        context.arc(x, y, radius, 0, Math.PI * 2);
         context.fill();
       }
     }
