@@ -151,8 +151,9 @@
           ? step*.48*Math.sqrt(tone)
           : step*(.08 + .40*Math.sqrt(photoDarkness));
         if (photoDarkness === undefined) {
-          const inBrand = x >= nameLeft && x <= nameLeft + nameBox.width && y >= nameTop && y <= nameTop + nameBox.height + 16;
-          context.fillStyle = inBrand && mask > .01 ? brandInk : '#272b2c';
+          // Brand and every screened heading share the same rose ink.
+          // Unmasked background dots remain neutral; portrait tones stay intact.
+          context.fillStyle = mask > .01 ? brandInk : '#272b2c';
         }
         else {
           const ink = Math.round(180 - 155*Math.pow(photoDarkness,.65));
