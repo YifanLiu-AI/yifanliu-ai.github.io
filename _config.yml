@@ -11,13 +11,15 @@ location: Guangzhou, China
 # The following information is used to improve the website traffic from search engines, e.g., Google.
 keywords: robotics, embodied intelligence, machine learning, academic homepage
 description: Academic homepage focused on robotics, embodied intelligence, and machine learning.
-canonical: https://wui.me/
+url: https://yifanliu-ai.github.io
+baseurl: ""
+canonical: https://yifanliu-ai.github.io/
 
 # Links 
 # If you don't need one of them, you may delete the corresponding line.
 google_scholar:
 cv_link:
-github_link: https://github.com/sudo-yf
+github_link: https://github.com/YifanLiu-AI
 linkedin:
 twitter:
 
