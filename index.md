@@ -40,10 +40,12 @@ layout: halftone-homepage
   <div class="project-list">
     {% for project in site.data.projects %}
     <article>
+      <div class="project-info">
       <h3>{{ project.title }}</h3>
       <p class="period">{{ project.meta }}</p>
       {% if project.authors != '' %}<p class="authors">{{ project.authors | escape }}</p>{% endif %}
       <p class="project-links">{% if project.url != '' %}<a href="{{ project.url }}" target="_blank" rel="noopener">Challenge website ↗</a> · {% endif %}<a href="{{ project.code_url }}" target="_blank" rel="noopener">{{ project.code_label }} ↗</a>{% if project.checkpoint_url != '' %} · <a href="{{ project.checkpoint_url }}" target="_blank" rel="noopener">Checkpoints ↗</a>{% endif %}</p>
+      </div>
       <figure class="project-media">
         {% if project.media_type == 'video' %}
         <video src="{{ project.media_src }}" aria-label="{{ project.media_alt | escape }}" autoplay muted loop playsinline preload="metadata"{% if project.clip_end %} data-clip-start="{{ project.clip_start }}" data-clip-end="{{ project.clip_end }}"{% endif %} style="aspect-ratio: {{ project.media_ratio }}"></video>
