@@ -46,3 +46,5 @@
 2026-10-12：About 学校链接文字缩短为 SCUT，保留机械与汽车工程学院名称。
 
 2026-10-12：研究方向精简为用户指定原句 My work focuses on bimanual and dexterous manipulation.，删除后续额外工作概述。
+
+2026-10-12：在黑白网点中加入局部主题玫红：RoboSyn 画面上部的机械臂暗部、LeHome 橙色机械臂、TwinPath 蓝青腕部。RoboSyn 以固定画面区域和明暗筛选，其余以原图色差筛选，保留明暗，实时视频沿用原文件；降低网点对比度以保留细节。

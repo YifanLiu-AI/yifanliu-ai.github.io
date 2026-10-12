@@ -9,10 +9,52 @@
   <link rel="canonical" href="{{ site.canonical }}">
   <link rel="icon" href="{{ site.favicon | relative_url }}" type="image/png">
   <link rel="preload" href="{{ '/assets/fonts/Anton-Regular.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="{{ '/assets/css/halftone-home.css?v=20261012-screened-projects' | relative_url }}">
-  <script src="{{ '/assets/js/halftone-home.js?v=20261012-screened-projects' | relative_url }}" defer></script>
+  <link rel="stylesheet" href="{{ '/assets/css/halftone-home.css?v=20261012-accented-projects' | relative_url }}">
+  <script src="{{ '/assets/js/halftone-home.js?v=20261012-accented-projects' | relative_url }}" defer></script>
 </head>
 <body>
+<svg class="project-color-filters" aria-hidden="true" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="project-accent-warm" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feColorMatrix in="SourceGraphic" type="saturate" values="0" result="gray"/>
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3 -1.5 -1.5 0 -.45" result="accentMask"/>
+      <feComponentTransfer in="accentMask" result="accentMask"><feFuncA type="linear" slope="4"/></feComponentTransfer>
+      <feComponentTransfer in="gray" result="roseTone">
+        <feFuncR type="linear" slope=".6" intercept=".357"/>
+        <feFuncG type="linear" slope=".6" intercept=".214"/>
+        <feFuncB type="linear" slope=".6" intercept=".269"/>
+      </feComponentTransfer>
+      <feComposite in="roseTone" in2="accentMask" operator="in" result="accent"/>
+      <feComposite in="accent" in2="gray" operator="over"/>
+    </filter>
+    <filter id="project-accent-cool" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feColorMatrix in="SourceGraphic" type="saturate" values="0" result="gray"/>
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -2 1 2 0 -.65" result="accentMask"/>
+      <feComponentTransfer in="accentMask" result="accentMask"><feFuncA type="linear" slope="2.5"/></feComponentTransfer>
+      <feComponentTransfer in="gray" result="roseTone">
+        <feFuncR type="linear" slope=".6" intercept=".357"/>
+        <feFuncG type="linear" slope=".6" intercept=".214"/>
+        <feFuncB type="linear" slope=".6" intercept=".269"/>
+      </feComponentTransfer>
+      <feComposite in="roseTone" in2="accentMask" operator="in" result="accent"/>
+      <feComposite in="accent" in2="gray" operator="over"/>
+    </filter>
+    <filter id="project-accent-robot" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feColorMatrix in="SourceGraphic" type="saturate" values="0" result="gray"/>
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -.574 -1.931 -.195 0 .85" result="darkMask"/>
+      <feComponentTransfer in="darkMask" result="darkMask"><feFuncA type="linear" slope="4"/></feComponentTransfer>
+      <feFlood flood-color="#fff" x="0%" y="0%" width="86%" height="58%" result="robotZone"/>
+      <feComposite in="darkMask" in2="robotZone" operator="in" result="accentMask"/>
+      <feComponentTransfer in="gray" result="roseTone">
+        <feFuncR type="linear" slope=".45" intercept=".612"/>
+        <feFuncG type="linear" slope=".45" intercept=".469"/>
+        <feFuncB type="linear" slope=".45" intercept=".524"/>
+      </feComponentTransfer>
+      <feComposite in="roseTone" in2="accentMask" operator="in" result="accent"/>
+      <feComposite in="accent" in2="gray" operator="over"/>
+    </filter>
+  </defs>
+</svg>
   <a class="skip-link" href="#about">Skip to content</a>
   <div class="sheet">
     <canvas id="halftone-name" aria-hidden="true"></canvas>
