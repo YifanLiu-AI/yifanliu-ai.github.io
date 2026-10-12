@@ -36,3 +36,5 @@
 2026-10-12：项目画面增加 6px 小圆角；三个项目各补一句简短工作介绍，沿用紧凑布局。
 
 2026-10-12：About 两段同步 GitHub 主页介绍，明确 B.Eng. student、机械与汽车工程学院和预计 2028 年 6 月毕业；移除泛化的 research student 表述。
+
+2026-10-12：三个项目介绍替换为用户选定英文：RoboSyn 的 pi0.5 SFT、感知规划与 policy 残差纠正；TwinPath 的 real2real pipeline infra；LeHome 的 X-VLA data flywheel 和 SR 反馈闭环调参。
