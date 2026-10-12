@@ -44,6 +44,7 @@ layout: halftone-homepage
       <h3>{{ project.title }}</h3>
       <p class="period">{{ project.meta }}</p>
       {% if project.authors != '' %}<p class="authors">{{ project.authors | escape }}</p>{% endif %}
+      <p class="project-summary">{{ project.summary | escape }}</p>
       <p class="project-links">{% if project.url != '' %}<a href="{{ project.url }}" target="_blank" rel="noopener">Challenge website ↗</a> · {% endif %}<a href="{{ project.code_url }}" target="_blank" rel="noopener">{{ project.code_label }} ↗</a>{% if project.checkpoint_url != '' %} · <a href="{{ project.checkpoint_url }}" target="_blank" rel="noopener">Checkpoints ↗</a>{% endif %}</p>
       </div>
       <figure class="project-media">

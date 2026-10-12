@@ -11,7 +11,8 @@
     "media_type": "video",
     "media_src": "https://robosyn-bench.net/static/assets/real-evaluation-videos/cobotmagic_Real_sample_loading.mp4",
     "media_alt": "Sample loading",
-    "media_ratio": "16 / 9"
+    "media_ratio": "16 / 9",
+    "summary": "π0.5 training and failure diagnosis; motion planning with policy residuals."
   },
   {
     "id": "wrist",
@@ -24,7 +25,8 @@
     "checkpoint_url": "",
     "media_type": "image",
     "media_src": "/assets/img/twinpath-drawer-pair.webp",
-    "media_alt": "TwinPath Wrist drawer retrieval"
+    "media_alt": "TwinPath Wrist drawer retrieval",
+    "summary": "Teleoperation, data collection, and imitation-learning infra for UR5e and a custom wrist."
   },
   {
     "id": "lehome",
@@ -40,6 +42,7 @@
     "media_alt": "Garment folding",
     "media_ratio": "16 / 9",
     "clip_start": 0,
-    "clip_end": 24.3
+    "clip_end": 24.3,
+    "summary": "Rollout-data augmentation and X-VLA policy tuning for bimanual garment folding."
   }
 ]
