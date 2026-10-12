@@ -30,3 +30,5 @@
 2026-10-12：项目区改为演示画面，删除长分点和 Research details。RoboSyn 使用官方 real-evaluation-videos 的 Sample Loading；LeHome 使用官方 lehome/dataset_challenge_real 的 top_short_merged、right_front、episode 0（0–24.35 秒，循环截止 24.3 秒）；TwinPath Wrist 使用本地论文 Figure 1 的完整抽屉取物三联图。取消 private 和可见来源说明。英文 CV 保留既有内容。
 
 2026-10-12：三个项目改为紧凑展示：桌面左侧信息、右侧 360px 画面，统一对齐和分隔间距；窄屏上下排列。抽屉取物三联图完整显示，视频沿用现有播放方式。
+
+2026-10-12：TwinPath Wrist 主图仅保留后两张机器人取物画面，裁除外围白底、底部编号；两图间保留 8px 透明间距。

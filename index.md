@@ -50,7 +50,7 @@ layout: halftone-homepage
         {% if project.media_type == 'video' %}
         <video src="{{ project.media_src }}" aria-label="{{ project.media_alt | escape }}" autoplay muted loop playsinline preload="metadata"{% if project.clip_end %} data-clip-start="{{ project.clip_start }}" data-clip-end="{{ project.clip_end }}"{% endif %} style="aspect-ratio: {{ project.media_ratio }}"></video>
         {% else %}
-        <img src="{{ project.media_src | relative_url }}" alt="{{ project.media_alt | escape }}" width="1778" height="424" loading="lazy" decoding="async">
+        <img src="{{ project.media_src | relative_url }}" alt="{{ project.media_alt | escape }}" width="1005" height="369" loading="lazy" decoding="async">
         {% endif %}
       </figure>
     </article>
