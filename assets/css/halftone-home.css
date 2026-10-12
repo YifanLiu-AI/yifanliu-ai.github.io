@@ -105,11 +105,11 @@ footer p{font-family:var(--display);font-size:20px}
 @media(max-width:767px){.project-list h3{font-size:24px}.project-list .authors{font-size:14px;line-height:1.5}}
 
 /* A fine monochrome screen follows both still images and live video. */
-.project-art{position:relative;isolation:isolate;overflow:hidden;border-radius:6px;filter:contrast(2.5);mix-blend-mode:multiply;opacity:.9;line-height:0}
-.project-art :is(video,img){filter:grayscale(1) brightness(.8);border-radius:0}
-.project-art::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at center,#000 0,#888 1.5px);background-size:3px 3px;mix-blend-mode:screen}
+.project-art{position:relative;isolation:isolate;overflow:hidden;border-radius:6px;filter:contrast(1.3);mix-blend-mode:multiply;opacity:.95;line-height:0}
+.project-art :is(video,img){filter:grayscale(1) brightness(.95);border-radius:0}
+.project-art::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at center,#000 0,#888 1px);background-size:2px 2px;mix-blend-mode:screen}
 
 .project-color-filters{position:absolute;pointer-events:none}
-.project-art--lehome :is(video,img){filter:url(#project-accent-warm) brightness(.8)}
-.project-art--robosyn :is(video,img){filter:url(#project-accent-robot) brightness(.8)}
-.project-art--wrist :is(video,img){filter:url(#project-accent-cool) brightness(.8)}
+.project-art--lehome :is(video,img){filter:url(#project-accent-warm) brightness(.95)}
+.project-art--robosyn :is(video,img){filter:url(#project-accent-warm) brightness(.95)}
+.project-art--wrist :is(video,img){filter:url(#project-accent-cool) brightness(.95)}
