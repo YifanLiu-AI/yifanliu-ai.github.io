@@ -187,3 +187,14 @@
     }, {once:true});
   }).catch(() => { /* Keep readable ordinary HTML if fonts or drawing fail. */ });
 })();
+
+// Loop the selected complete folding episode within the official video file.
+for (const video of document.querySelectorAll('video[data-clip-end]')) {
+  const start = Number(video.dataset.clipStart || 0);
+  const end = Number(video.dataset.clipEnd);
+  const rewind = () => {
+    if (video.currentTime >= end || video.currentTime < start) video.currentTime = start;
+  };
+  video.addEventListener('loadedmetadata', rewind);
+  video.addEventListener('timeupdate', rewind);
+}

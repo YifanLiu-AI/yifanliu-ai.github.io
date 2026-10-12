@@ -86,11 +86,10 @@ footer p{font-family:var(--display);font-size:20px}
 .project-list .period{margin-top:9px}
 .project-list .authors{margin-top:7px;font-size:15px;color:var(--muted)}
 .project-links{margin-top:10px;font-size:15px;color:var(--accent)}
-.project-intro{margin-top:16px;font-size:17px;line-height:1.6}
-.project-list strong{font-weight:600}
-.project-list details{margin-top:14px;font-size:17px;line-height:1.6}
-.project-list summary{cursor:pointer;color:var(--accent);font-size:15px;text-decoration:underline;text-underline-offset:4px}
-.project-list ol{margin:14px 0 0;padding-left:23px}
-.project-list li+li{margin-top:15px}
 @media(max-width:1023px){.project-list{padding-left:154px}.masthead{gap:20px}nav{gap:18px}.contact-links{gap:16px}}
 @media(max-width:767px){.project-list{padding-left:0;margin-top:24px}.project-list h3{font-size:26px}.project-list article+article{margin-top:27px;padding-top:26px}.contact-links{gap:10px}.contact-links .contact-link{font-size:12px}}
+
+.project-media{margin:18px 0 0;width:100%}
+.project-media video{display:block;width:100%;height:auto;object-fit:contain;background:#111}
+.project-media img{display:block;width:100%;height:auto;background:white}
+@media(max-width:767px){.project-media{margin-top:15px}.project-list .authors{font-size:14px;line-height:1.55}}

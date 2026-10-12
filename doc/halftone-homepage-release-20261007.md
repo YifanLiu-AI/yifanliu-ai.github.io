@@ -25,4 +25,6 @@
 
 2026-10-12：按 Overleaf 已选英文 E 版同步 CV PDF、研究经历与三个项目；Mixer 为 random seeds 47/60→56/60，MP 为 60 个冻结随机开发场景配对评测 47/60→58/60。删除 IA 和旧 77% 采样表述。项目详情可展开，沿用原主页样式。
 
-2026-10-12：补充 RoboSyn 代码（当前私有）和 Hugging Face checkpoint 链接；TwinPath Wrist 补充 slai-manipulation 代码链接。
+2026-10-12：补充 RoboSyn 代码和 Hugging Face checkpoint 链接；TwinPath Wrist 补充 slai-manipulation 代码链接。
+
+2026-10-12：项目区改为演示画面，删除长分点和 Research details。RoboSyn 使用官方 real-evaluation-videos 的 Sample Loading；LeHome 使用官方 lehome/dataset_challenge_real 的 top_short_merged、right_front、episode 0（0–24.35 秒，循环截止 24.3 秒）；TwinPath Wrist 使用本地论文 Figure 1 的完整抽屉取物三联图。取消 private 和可见来源说明。英文 CV 保留既有内容。
