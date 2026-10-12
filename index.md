@@ -26,6 +26,7 @@ layout: halftone-homepage
     {% for item in site.data.experience %}
     <article>
       {% if item.logo %}<img{% if item.institution == 'SCUT' %} class="scut-logo"{% endif %} src="{{ item.logo | relative_url }}" alt="{{ item.institution_name | escape }} logo" width="200" height="62" loading="lazy" decoding="async">{% endif %}
+      <p class="lab">{{ item.lab }}</p>
       <h3>{{ item.role }}</h3>
       <p>{{ item.relationship }}: <a href="{{ item.advisor_url }}" target="_blank" rel="noopener">{{ item.advisor }}</a></p>
       <p class="period">{{ item.period }}</p>
@@ -34,4 +35,21 @@ layout: halftone-homepage
   </div>
 </section>
 
-<!-- Add selected publications and projects here when they are ready. -->
+<section class="projects section" aria-labelledby="projects">
+  <h2 id="projects">Projects</h2>
+  <div class="project-list">
+    {% for project in site.data.projects %}
+    <article>
+      <h3>{{ project.title }}</h3>
+      <p class="period">{{ project.meta }}</p>
+      {% if project.authors != '' %}<p class="authors">{{ project.authors | escape }}</p>{% endif %}
+      {% if project.url != '' %}<p class="project-links"><a href="{{ project.url }}" target="_blank" rel="noopener">Challenge website ↗</a>{% if project.id == 'lehome' %} · <a href="https://github.com/YifanLiu-AI/lehome-challenge" target="_blank" rel="noopener">Code ↗</a>{% endif %}</p>{% endif %}
+      <p class="project-intro">{{ project.items[0] }}</p>
+      <details>
+        <summary>Research details</summary>
+        <ol start="2">{% for item in project.items offset:1 %}<li>{{ item }}</li>{% endfor %}</ol>
+      </details>
+    </article>
+    {% endfor %}
+  </div>
+</section>
