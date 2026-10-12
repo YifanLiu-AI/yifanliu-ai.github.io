@@ -26,7 +26,7 @@ img{max-width:100%}
 .wordmark h1{font:46px/58px var(--display);white-space:nowrap;letter-spacing:-1px;color:var(--brand-ink)}
 nav{display:flex;gap:30px;margin-left:auto;font-size:15px}
 nav a,.contact-link{text-decoration:none}
-.contact-links{display:flex;align-items:center;gap:22px;flex-shrink:0;color:var(--accent)}
+.contact-links{display:flex;align-items:center;margin-left:auto;gap:22px;flex-shrink:0;color:var(--accent)}
 .contact-link{font-size:15px;white-space:nowrap}
 .contact-link span{margin-left:6px;color:var(--accent)}
 .poster{position:relative;padding-top:25px}
