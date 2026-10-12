@@ -5,8 +5,8 @@ layout: halftone-homepage
 <section id="about" class="about">
   <h2>About</h2>
   <div class="intro">
-    <p>I'm a B.Eng. student in the <a href="{{ site.affiliation_link }}">School of Mechanical and Automotive Engineering, South China University of Technology (SCUT)</a>, with an expected graduation date of <strong>June 2028</strong>.</p>
-    <p>My work focuses on robot learning, simulation-to-real workflows, and bimanual and dexterous manipulation. I build and evaluate policies, investigate task failures, and develop teleoperation and rollout-data pipelines.</p>
+    <p>I'm a B.Eng. student in the School of Mechanical and Automotive Engineering at <a href="{{ site.affiliation_link }}">SCUT</a>, with an expected graduation date of <strong>June 2028</strong>.</p>
+    <p>My work focuses on bimanual and dexterous manipulation.</p>
   </div>
   {% if site.avatar %}<img class="portrait" src="{{ site.avatar | relative_url }}" alt="Portrait of {{ site.title }}" width="144" height="144" decoding="async">{% endif %}
 </section>
@@ -48,11 +48,13 @@ layout: halftone-homepage
       <p class="project-links">{% if project.url != '' %}<a href="{{ project.url }}" target="_blank" rel="noopener">Challenge website ↗</a> · {% endif %}<a href="{{ project.code_url }}" target="_blank" rel="noopener">{{ project.code_label }} ↗</a>{% if project.checkpoint_url != '' %} · <a href="{{ project.checkpoint_url }}" target="_blank" rel="noopener">Checkpoints ↗</a>{% endif %}</p>
       </div>
       <figure class="project-media">
+        <div class="project-art">
         {% if project.media_type == 'video' %}
         <video src="{{ project.media_src }}" aria-label="{{ project.media_alt | escape }}" autoplay muted loop playsinline preload="metadata"{% if project.clip_end %} data-clip-start="{{ project.clip_start }}" data-clip-end="{{ project.clip_end }}"{% endif %} style="aspect-ratio: {{ project.media_ratio }}"></video>
         {% else %}
         <img src="{{ project.media_src | relative_url }}" alt="{{ project.media_alt | escape }}" width="1005" height="369" loading="lazy" decoding="async">
         {% endif %}
+        </div>
       </figure>
     </article>
     {% endfor %}

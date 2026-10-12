@@ -103,3 +103,8 @@ footer p{font-family:var(--display);font-size:20px}
 .project-media img{display:block;width:100%;height:auto;border-radius:6px}
 @media(max-width:899px){.project-list article{grid-template-columns:1fr;gap:15px;min-height:0}.project-media{width:100%;max-width:360px;min-height:0}.project-list article+article{margin-top:25px;padding-top:25px}}
 @media(max-width:767px){.project-list h3{font-size:24px}.project-list .authors{font-size:14px;line-height:1.5}}
+
+/* A fine monochrome screen follows both still images and live video. */
+.project-art{position:relative;isolation:isolate;overflow:hidden;border-radius:6px;filter:contrast(10);mix-blend-mode:multiply;opacity:.9;line-height:0}
+.project-art :is(video,img){filter:grayscale(1) brightness(.5);border-radius:0}
+.project-art::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at center,#000 0,#888 1.5px);background-size:3px 3px;mix-blend-mode:screen}

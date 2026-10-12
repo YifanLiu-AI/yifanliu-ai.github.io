@@ -93,6 +93,10 @@
       const box = element.getBoundingClientRect();
       return {left:box.left-bounds.left,right:box.right-bounds.left,top:box.top-bounds.top,height:box.height};
     });
+    const projectTitleZones = [...parent.querySelectorAll('.project-list h3')].map(element => {
+      const box = element.getBoundingClientRect();
+      return {left:box.left-bounds.left,right:box.right-bounds.left,top:box.top-bounds.top,bottom:box.bottom-bounds.top};
+    });
     let photo;
     if (photoReady) {
       const box = portrait.getBoundingClientRect();
@@ -119,6 +123,8 @@
           const py = Math.max(0, Math.min(height - 1, Math.floor(y + dy * step)));
           mask += pixels[(py * width + px) * 4 + 3] / 1275;
         }
+        // Project titles receive their own finer screen below.
+        if (projectTitleZones.some(zone => x>=zone.left && x<=zone.right && y>=zone.top && y<=zone.bottom)) mask = 0;
         // A single continuous background field passes through ALL type.
         const column = .5 + .5 * Math.sin(x * .032 + .35 * Math.sin(y * .012));
         const broad = .5 + .5 * Math.sin(x * .009 - y * .005);
@@ -162,6 +168,26 @@
         context.beginPath();
         context.arc(x, y, radius, 0, Math.PI * 2);
         context.fill();
+      }
+    }
+    // Smaller project headings need closer dots to preserve their letterforms.
+    const titleStep = mobile ? 1.6 : 1.8;
+    context.fillStyle = brandInk;
+    for (const zone of projectTitleZones) {
+      for (let y = Math.floor(zone.top/titleStep)*titleStep + titleStep/2; y <= zone.bottom; y += titleStep) {
+        for (let x = Math.floor(zone.left/titleStep)*titleStep + titleStep/2; x <= zone.right; x += titleStep) {
+          let mask = 0;
+          for (const [dx,dy] of samples) {
+            const px = Math.max(0,Math.min(width-1,Math.floor(x+dx*titleStep)));
+            const py = Math.max(0,Math.min(height-1,Math.floor(y+dy*titleStep)));
+            mask += pixels[(py*width+px)*4+3]/1275;
+          }
+          if (mask < .01) continue;
+          const gain = .94 - .12*(y-zone.top)/Math.max(1,zone.bottom-zone.top);
+          context.beginPath();
+          context.arc(x,y,titleStep*.49*Math.sqrt(Math.pow(mask,.65)*gain),0,Math.PI*2);
+          context.fill();
+        }
       }
     }
     lastSize = sizeKey;

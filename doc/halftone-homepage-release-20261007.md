@@ -40,3 +40,9 @@
 2026-10-12：三个项目介绍替换为用户选定英文：RoboSyn 的 pi0.5 SFT、感知规划与 policy 残差纠正；TwinPath 的 real2real pipeline infra；LeHome 的 X-VLA data flywheel 和 SR 反馈闭环调参。
 
 2026-10-12：两个比赛的简短介绍前补参赛队名：RoboSyn 为 Competing as MIAA-HCC；LeHome 为 Competed as Ebtech-MIAA。
+
+2026-10-12：三个项目画面使用细密黑白半调网点，沿用原始视频实时播放；项目标题单独加密网点，桌面间距 1.8px、手机 1.6px，保持字形可读。
+
+2026-10-12：About 学校链接文字缩短为 SCUT，保留机械与汽车工程学院名称。
+
+2026-10-12：研究方向精简为用户指定原句 My work focuses on bimanual and dexterous manipulation.，删除后续额外工作概述。
