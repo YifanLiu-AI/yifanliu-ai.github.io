@@ -43,7 +43,7 @@ layout: halftone-homepage
       <h3>{{ project.title }}</h3>
       <p class="period">{{ project.meta }}</p>
       {% if project.authors != '' %}<p class="authors">{{ project.authors | escape }}</p>{% endif %}
-      {% if project.url != '' %}<p class="project-links"><a href="{{ project.url }}" target="_blank" rel="noopener">Challenge website ↗</a>{% if project.id == 'lehome' %} · <a href="https://github.com/YifanLiu-AI/lehome-challenge" target="_blank" rel="noopener">Code ↗</a>{% endif %}</p>{% endif %}
+      <p class="project-links">{% if project.url != '' %}<a href="{{ project.url }}" target="_blank" rel="noopener">Challenge website ↗</a> · {% endif %}<a href="{{ project.code_url }}" target="_blank" rel="noopener">{{ project.code_label }} ↗</a>{% if project.checkpoint_url != '' %} · <a href="{{ project.checkpoint_url }}" target="_blank" rel="noopener">Checkpoints ↗</a>{% endif %}</p>
       <p class="project-intro">{{ project.items[0] }}</p>
       <details>
         <summary>Research details</summary>

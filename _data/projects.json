@@ -10,7 +10,10 @@
       "<strong>Failure-stage diagnosis</strong>: Trained π0.5 baselines across all 10 tasks using four H100 GPUs and an RTX 4090. Sparse rewards made failure stages difficult to identify; added rollout sensors and subtask checks to localize the main failures in low-success-rate tasks.",
       "<strong>Mixer Operating</strong>: Traced pressing failures through raw data, normalization, and control; found 195/1,000 demonstrations with action/state values outside the current joint limits. Removed incompatible demonstrations and applied ISR-based trajectory frame selection; under random seeds, success improved from <strong>78.3% (47/60) to 93.3% (56/60)</strong>.",
       "<strong>Manipulate Pipette</strong>: Used motion planning as the primary controller, with lateral residual corrections from online π0.5 predictions added to the downward plan to address insufficient pressing depth. In a paired evaluation on 60 frozen random development scenarios, success rate increased from <strong>78.3% (47/60) to 96.7% (58/60)</strong>."
-    ]
+    ],
+    "code_url": "https://github.com/innovationasuna/RoboSynChallenge_MIAA-HCC",
+    "code_label": "Code (private)",
+    "checkpoint_url": "https://huggingface.co/innovationasuna/robosynchallenge-checkpoint"
   },
   {
     "id": "wrist",
@@ -23,7 +26,10 @@
       "<strong>Teleoperation</strong>: Used a SpaceMouse to control the 6-DoF UR5e, wuji-retargeting (the official adaptation of dex-retargeting) for the 20-DoF Wuji hand, and a custom master wrist built by a senior lab member for the 2-DoF follower wrist.",
       "<strong>Data collection</strong>: Frequent jumps in thumb–index distance during grasping prompted replacing real-time wuji-retargeting with keyboard-selected gesture presets, reducing control complexity and improving data stability. Integrated motion planning and saved key poses for rapid homing and preset-pose switching, reserving manual teleoperation for difficult subtasks. Built web-based visualization and hand-temperature alerts. Compared with the conventional SpaceMouse/dex-retargeting workflow, this process enabled inexperienced operators to collect <strong>40+ successful demonstrations in 30 minutes</strong>.",
       "<strong>Imitation learning</strong>: Investigated grasp misalignment and weak generalization during Wuji-hand picking. Disabled camera inputs one at a time and found that removing one view barely changed policy trajectories. Added training perturbations and random camera/state input dropout; the retrained policy completed the pick test task."
-    ]
+    ],
+    "code_url": "https://github.com/YifanLiu-AI/slai-manipulation",
+    "code_label": "Code",
+    "checkpoint_url": ""
   },
   {
     "id": "lehome",
@@ -37,6 +43,9 @@
       "<strong>Closed-loop tuning</strong>: Built an automated training, closed-loop evaluation, and configuration-adjustment pipeline after observing that lower loss could yield lower success. At 30k training steps and <strong>60 evaluation episodes per setting</strong>, augmentation limits of 0, 1, 2, and 3 yielded success rates of 76.67%, <strong>86.67%</strong>, 80%, and 78.33%, respectively. Selected one augmentation, improving long-sleeve success on training-set scenarios from <strong>76.67% to 86.67%</strong>.",
       "<strong>Data flywheel</strong>: The official dataset provides 25 demonstrations for each of 40 seen garments; limited data hindered generalization. Adding low-quality simulation demonstrations collected by human experts through master-arm teleoperation reduced success. Independently developed a multi-round RFT data flywheel that fed policy rollouts back into training. Under compute constraints, the team generated roughly 100 rollout trajectories, achieving success-rate gains of <strong>20% on the training set and 2% on the test set</strong>. The champion&#x27;s post-competition report described similar components using tens of thousands of rollouts.",
       "<strong>Trajectory filtering</strong>: Clustered rollout episodes by completion time and reward to reduce redundant successful trajectories while retaining longer successes with corrective behavior."
-    ]
+    ],
+    "code_url": "https://github.com/YifanLiu-AI/lehome-challenge",
+    "code_label": "Code",
+    "checkpoint_url": ""
   }
 ]

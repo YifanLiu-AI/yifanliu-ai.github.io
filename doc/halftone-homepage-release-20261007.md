@@ -24,3 +24,5 @@
 
 
 2026-10-12：按 Overleaf 已选英文 E 版同步 CV PDF、研究经历与三个项目；Mixer 为 random seeds 47/60→56/60，MP 为 60 个冻结随机开发场景配对评测 47/60→58/60。删除 IA 和旧 77% 采样表述。项目详情可展开，沿用原主页样式。
+
+2026-10-12：补充 RoboSyn 代码（当前私有）和 Hugging Face checkpoint 链接；TwinPath Wrist 补充 slai-manipulation 代码链接。
