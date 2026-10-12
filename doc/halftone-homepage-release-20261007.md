@@ -38,3 +38,5 @@
 2026-10-12：About 两段同步 GitHub 主页介绍，明确 B.Eng. student、机械与汽车工程学院和预计 2028 年 6 月毕业；移除泛化的 research student 表述。
 
 2026-10-12：三个项目介绍替换为用户选定英文：RoboSyn 的 pi0.5 SFT、感知规划与 policy 残差纠正；TwinPath 的 real2real pipeline infra；LeHome 的 X-VLA data flywheel 和 SR 反馈闭环调参。
+
+2026-10-12：两个比赛的简短介绍前补参赛队名：RoboSyn 为 Competing as MIAA-HCC；LeHome 为 Competed as Ebtech-MIAA。

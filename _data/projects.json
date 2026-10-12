@@ -12,7 +12,7 @@
     "media_src": "https://robosyn-bench.net/static/assets/real-evaluation-videos/cobotmagic_Real_sample_loading.mp4",
     "media_alt": "Sample loading",
     "media_ratio": "16 / 9",
-    "summary": "pi0.5 SFT; perception and planning with policy residual corrections."
+    "summary": "Competing as MIAA-HCC. pi0.5 SFT; perception and planning with policy residual corrections."
   },
   {
     "id": "wrist",
@@ -43,6 +43,6 @@
     "media_ratio": "16 / 9",
     "clip_start": 0,
     "clip_end": 24.3,
-    "summary": "X-VLA data flywheel and policy tuning through a closed-loop pipeline with SR feedback."
+    "summary": "Competed as Ebtech-MIAA. X-VLA data flywheel and policy tuning through a closed-loop pipeline with SR feedback."
   }
 ]
