@@ -54,3 +54,5 @@
 - 2026-10-12：项目媒体网点周期由 3px 收紧至 2px，保留局部原色，提高机械臂和物体细节的可辨认度。
 
 - 2026-10-12：顶部仅保留 CV 与 GitHub，移除 News / Experience / Projects 导航及 gmail 链接。
+
+- 2026-10-14：河套学院职位改为 Research Assistant (Full-time)。
