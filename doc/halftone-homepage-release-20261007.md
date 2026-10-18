@@ -56,5 +56,3 @@
 - 2026-10-12：顶部仅保留 CV 与 GitHub，移除 News / Experience / Projects 导航及 gmail 链接。
 
 - 2026-10-14：河套学院职位改为 Research Assistant (Full-time)。
-
-- 2026-10-18：按用户要求删除主页顶部 CV 简历入口。
