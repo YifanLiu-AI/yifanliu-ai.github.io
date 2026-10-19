@@ -66,3 +66,5 @@
 - 2026-10-20：三段经历名称统一为 Research Assistant，导师标签统一为 Advisor，保留导师实际职称、链接及日期。
 
 - 2026-10-20：按实际任职机构将三段经历标题改为 RA @ SJTU、RA @ SLAI、RA @ SCUT。
+
+- 2026-10-20：根据用户最新要求，将三段 RA @ 机构名称统一改为 Intern @ SJTU、Intern @ SLAI、Intern @ SCUT。
