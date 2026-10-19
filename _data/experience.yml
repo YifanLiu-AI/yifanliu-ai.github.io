@@ -38,7 +38,7 @@
   relationship: Academic Advisor
   summary:
   initials: MIAA
-  logo: /assets/img/scut-gzic-emblem.png
-  logo_alt: SCUT Guangzhou International Campus emblem
+  logo: /assets/img/scut-emblem-monochrome.png
+  logo_alt: South China University of Technology emblem
   logo_variant: emblem
-  logo_source: https://www2.scut.edu.cn/_upload/tpl/0c/fa/3322/template3322/images/logo.png
+  logo_source: /assets/img/scut-logo-trimmed.png
