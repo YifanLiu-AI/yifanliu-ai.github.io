@@ -117,7 +117,7 @@ footer p{font-family:var(--display);font-size:20px}
 /* Research experience rows: role on the left, advisor and dates on the right. */
 .experience-list{display:block;padding-left:192px;margin-top:24px}
 .experience-list article{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:40px;align-items:center;padding:28px 0}
-.experience-list article+article{padding:28px 0;border:0;border-top:1px solid var(--rule)}
+.experience-list article+article{padding:28px 0;border:0}
 .experience-role{display:grid;grid-template-columns:64px minmax(0,1fr);gap:24px;align-items:center;min-width:0}
 .experience-role h3{min-width:0;overflow-wrap:anywhere}
 .experience-list img.institution-emblem{width:64px;height:64px;margin:0;filter:none;mix-blend-mode:normal}
