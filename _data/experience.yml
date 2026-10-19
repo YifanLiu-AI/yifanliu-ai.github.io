@@ -8,7 +8,7 @@
   relationship: Advisor
   summary:
   initials: SJTU
-  logo: /assets/img/sjtu-wordmark-monochrome.png
+  logo: /assets/img/sjtu-wordmark-color.png
   logo_alt: Shanghai Jiao Tong University — emblem and calligraphic name
   logo_width: 590
   logo_height: 157
@@ -24,11 +24,10 @@
   relationship: Advisor
   summary:
   initials: RAPID
-  logo: /assets/img/sysu-wordmark-monochrome.png
+  logo: /assets/img/sysu-wordmark-color.png
   logo_alt: Sun Yat-sen University — emblem and calligraphic name
   logo_width: 500
   logo_height: 144
-  logo_caption: Shenzhen Loop Area Institute
   logo_source: https://www.sysu.edu.cn/images/zhuzhanLOGO.png
 
 - lab: MIAA Lab
@@ -41,7 +40,7 @@
   relationship: Advisor
   summary:
   initials: MIAA
-  logo: /assets/img/scut-wordmark-monochrome.png
+  logo: /assets/img/scut-wordmark-color.png
   logo_alt: South China University of Technology — emblem and calligraphic name
   logo_width: 698
   logo_height: 167

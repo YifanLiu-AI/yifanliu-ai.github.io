@@ -28,7 +28,6 @@ layout: halftone-homepage
       <div class="experience-role">
         {% if item.logo %}<img class="institution-wordmark" src="{{ item.logo | relative_url }}" alt="{{ item.logo_alt | default: item.institution_name | escape }}" width="{{ item.logo_width }}" height="{{ item.logo_height }}" loading="lazy" decoding="async">{% endif %}
         <h3 class="visually-hidden">{{ item.role }}</h3>
-        {% if item.logo_caption %}<p class="institution-caption">{{ item.logo_caption }}</p>{% endif %}
       </div>
       <div class="experience-meta">
         <p>{{ item.relationship }}: <a href="{{ item.advisor_url }}" target="_blank" rel="noopener">{{ item.advisor }}</a></p>

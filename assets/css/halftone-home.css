@@ -117,19 +117,18 @@ footer p{font-family:var(--display);font-size:20px}
 
 /* Research experience rows: role on the left, advisor and dates on the right. */
 .experience{display:grid;grid-template-columns:160px minmax(0,1fr);gap:32px;align-items:start}
-.experience-list{display:block;padding-left:0;margin-top:0;min-width:0;background:var(--paper)}
+.experience-list{display:block;padding-left:0;margin-top:0;min-width:0}
 .experience-list article{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:40px;align-items:center;padding:0 0 28px}
 .experience-list article+article{padding:28px 0;border:0}
 .experience-role{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
 .experience-role h3{min-width:0;overflow-wrap:anywhere}
-.experience-list img.institution-wordmark{width:auto;height:74px;max-width:100%;margin:0;object-fit:contain;object-position:left center;filter:none;mix-blend-mode:normal}
-.institution-caption{font:15px/1.4 var(--body);color:var(--ink)}
+.experience-list img.institution-wordmark{width:auto;height:74px;max-width:100%;margin:0;object-fit:contain;object-position:left center;filter:saturate(.65);mix-blend-mode:normal}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 .experience-meta{min-width:0;text-align:right;font-size:16px;line-height:1.55}
 .experience-meta p{margin:0}
 .experience-meta .period{margin-top:10px;font-size:13px}
 @media(max-width:1023px){.experience{grid-template-columns:130px minmax(0,1fr);gap:24px}.experience-list{padding-left:0}.experience-list article{grid-template-columns:minmax(0,1fr) minmax(230px,300px);gap:28px}}
-@media(max-width:767px){.experience{grid-template-columns:1fr;gap:24px}.experience-list article{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;padding:0 0 24px}.experience-list article+article{padding:24px 0}.experience-role{gap:8px}.experience-list img.institution-wordmark{width:100%;height:auto;max-height:68px}.institution-caption{font-size:13px}.experience-meta{font-size:14px}.experience-meta .period{font-size:12px}}
+@media(max-width:767px){.experience{grid-template-columns:1fr;gap:24px}.experience-list article{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;padding:0 0 24px}.experience-list article+article{padding:24px 0}.experience-role{gap:8px}.experience-list img.institution-wordmark{width:100%;height:auto;max-height:68px}.experience-meta{font-size:14px}.experience-meta .period{font-size:12px}}
 
 /* Brief entrance while fonts and the first halftone frame are prepared. */
 html.is-loading{overflow:hidden}
