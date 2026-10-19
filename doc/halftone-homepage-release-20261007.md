@@ -68,3 +68,5 @@
 - 2026-10-20：按实际任职机构将三段经历标题改为 RA @ SJTU、RA @ SLAI、RA @ SCUT。
 
 - 2026-10-20：根据用户最新要求，将三段 RA @ 机构名称统一改为 Intern @ SJTU、Intern @ SLAI、Intern @ SCUT。
+
+- 2026-10-20：网点间距略微增加、背景网点略微减淡；三枚校徽统一为黑白。GitHub 同步 Intern 标题、黑白校徽和 ICRA 2027 透明标志。

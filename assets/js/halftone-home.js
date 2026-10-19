@@ -112,7 +112,7 @@
     }
 
     const pixels = source.getImageData(0, 0, width, height).data;
-    const step = mobile ? 1.8 : 2.4;
+    const step = mobile ? 2 : 2.6;
     const samples = [[0,0],[-.28,0],[.28,0],[0,-.28],[0,.28]];
     context.fillStyle = '#272b2c';
     for (let y = step / 2; y < height; y += step) {
@@ -128,7 +128,7 @@
         // A single continuous background field passes through ALL type.
         const column = .5 + .5 * Math.sin(x * .032 + .35 * Math.sin(y * .012));
         const broad = .5 + .5 * Math.sin(x * .009 - y * .005);
-        const paperTone = .01 + .026 * column + .013 * broad;
+        const paperTone = .008 + .022 * column + .011 * broad;
         let inkGain = .82 + .06 * column + .03 * broad;
         if (y >= nameTop && y <= nameTop + nameBox.height + 16 && x >= nameLeft && x <= nameLeft + nameBox.width) {
           const rowTop = nameTop + nameBox.height*.1;

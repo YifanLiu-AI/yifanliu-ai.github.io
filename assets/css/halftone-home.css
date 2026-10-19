@@ -120,7 +120,7 @@ footer p{font-family:var(--display);font-size:20px}
 .experience-list article+article{padding:28px 0;border:0}
 .experience-role{display:grid;grid-template-columns:64px minmax(0,1fr);gap:24px;align-items:center;min-width:0}
 .experience-role h3{min-width:0;overflow-wrap:anywhere}
-.experience-list img.institution-emblem{width:64px;height:64px;margin:0;filter:none;mix-blend-mode:normal}
+.experience-list img.institution-emblem{width:64px;height:64px;margin:0;filter:grayscale(1) brightness(0);opacity:.8;mix-blend-mode:normal}
 .experience-meta{min-width:0;text-align:right;font-size:16px;line-height:1.55}
 .experience-meta p{margin:0}
 .experience-meta .period{margin-top:10px;font-size:13px}
