@@ -215,13 +215,71 @@
     .finally(() => window.dispatchEvent(new Event('homepage-ready')));
 })();
 
-// Loop the selected complete folding episode within the official video file.
-for (const video of document.querySelectorAll('video[data-clip-end]')) {
-  const start = Number(video.dataset.clipStart || 0);
-  const end = Number(video.dataset.clipEnd);
-  const rewind = () => {
-    if (video.currentTime >= end || video.currentTime < start) video.currentTime = start;
+// Project media has its own loading, retry, and failure state.
+for (const figure of document.querySelectorAll('.project-media')) {
+  const media = figure.querySelector('video,img');
+  const label = figure.querySelector('.media-loading-label');
+  const retry = figure.querySelector('.media-retry');
+  if (!media || !label || !retry) continue;
+  let delay;
+  const loading = () => {
+    clearTimeout(delay);
+    figure.dataset.mediaState = 'loading';
+    figure.setAttribute('aria-busy', 'true');
+    label.textContent = 'Loading…';
+    retry.hidden = true;
+    delay = setTimeout(() => {
+      label.textContent = 'Still loading…';
+      retry.hidden = false;
+    }, 12000);
   };
-  video.addEventListener('loadedmetadata', rewind);
-  video.addEventListener('timeupdate', rewind);
+  const ready = () => {
+    clearTimeout(delay);
+    figure.dataset.mediaState = 'ready';
+    figure.setAttribute('aria-busy', 'false');
+  };
+  const failed = () => {
+    clearTimeout(delay);
+    figure.dataset.mediaState = 'error';
+    figure.setAttribute('aria-busy', 'false');
+    label.textContent = 'Unable to load';
+    retry.hidden = false;
+  };
+  media.addEventListener('error', failed);
+  retry.addEventListener('click', () => {
+    loading();
+    if (media.tagName === 'VIDEO') {
+      media.load();
+      media.play().catch(() => { if (media.readyState >= 2) ready(); });
+    } else {
+      const url = new URL(media.src);
+      url.searchParams.set('retry', Date.now());
+      media.src = url.href;
+    }
+  });
+  loading();
+  if (media.tagName === 'VIDEO') {
+    media.addEventListener('loadeddata', ready);
+    media.addEventListener('playing', ready);
+    media.addEventListener('waiting', loading);
+    if (media.readyState >= 2) ready();
+    else if (media.error) failed();
+    // Older entries can still define a loop within a longer source file.
+    if (media.dataset.clipEnd) {
+      const start = Number(media.dataset.clipStart || 0);
+      const end = Number(media.dataset.clipEnd);
+      const rewind = () => {
+        if (media.currentTime >= end || media.currentTime < start) media.currentTime = start;
+      };
+      media.addEventListener('loadedmetadata', rewind);
+      media.addEventListener('timeupdate', rewind);
+    }
+  } else {
+    const imageReady = () => media.decode().then(ready, ready);
+    media.addEventListener('load', imageReady);
+    if (media.complete) {
+      if (media.naturalWidth > 0) imageReady();
+      else failed();
+    }
+  }
 }

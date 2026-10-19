@@ -11,7 +11,7 @@
   <script>
     (() => {
       const root = document.documentElement;
-      root.classList.add('is-loading');
+      root.classList.add('has-js', 'is-loading');
       let timeout;
       const finish = () => {
         root.classList.remove('is-loading');
@@ -29,8 +29,8 @@
     })();
   </script>
   <link rel="preload" href="{{ '/assets/fonts/Anton-Regular.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="{{ '/assets/css/halftone-home.css?v=20261020-loading' | relative_url }}">
-  <script src="{{ '/assets/js/halftone-home.js?v=20261020-loading' | relative_url }}" defer></script>
+  <link rel="stylesheet" href="{{ '/assets/css/halftone-home.css?v=20261020-media-loading' | relative_url }}">
+  <script src="{{ '/assets/js/halftone-home.js?v=20261020-media-loading' | relative_url }}" defer></script>
 </head>
 <body>
   <div class="page-loader" role="status" aria-live="polite">

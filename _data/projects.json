@@ -12,7 +12,8 @@
     "media_src": "https://robosyn-bench.net/static/assets/real-evaluation-videos/cobotmagic_Real_sample_loading.mp4",
     "media_alt": "Sample loading",
     "media_ratio": "16 / 9",
-    "summary": "Competing as MIAA-HCC. pi0.5 SFT; perception and planning with policy residual corrections."
+    "summary": "Competing as MIAA-HCC. pi0.5 SFT; perception and planning with policy residual corrections.",
+    "poster": "/assets/img/robosyn-sample-loading-poster.webp"
   },
   {
     "id": "wrist",
@@ -38,11 +39,10 @@
     "code_label": "Code",
     "checkpoint_url": "",
     "media_type": "video",
-    "media_src": "https://huggingface.co/datasets/lehome/dataset_challenge_real/resolve/main/top_short_merged/videos/observation.images.right_front/chunk-000/file-000.mp4#t=0",
+    "media_src": "/assets/video/lehome-folding.mp4",
     "media_alt": "Garment folding",
     "media_ratio": "16 / 9",
-    "clip_start": 0,
-    "clip_end": 24.3,
-    "summary": "Competed as Ebtech-MIAA. X-VLA data flywheel and policy tuning through a closed-loop pipeline with SR feedback."
+    "summary": "Competed as Ebtech-MIAA. X-VLA data flywheel and policy tuning through a closed-loop pipeline with SR feedback.",
+    "poster": "/assets/img/lehome-folding-poster.webp"
   }
 ]

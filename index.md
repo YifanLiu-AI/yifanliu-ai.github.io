@@ -21,7 +21,7 @@ layout: halftone-homepage
 </section>
 
 <section class="experience section" aria-labelledby="experience">
-  <h2 id="experience">Experience</h2>
+  <h2 id="experience">Intern</h2>
   <div class="experience-list">
     {% for item in site.data.experience %}
     <article>
@@ -50,13 +50,18 @@ layout: halftone-homepage
       <p class="project-summary">{{ project.summary | escape }}</p>
       <p class="project-links">{% if project.url != '' %}<a href="{{ project.url }}" target="_blank" rel="noopener">Challenge website ↗</a> · {% endif %}<a href="{{ project.code_url }}" target="_blank" rel="noopener">{{ project.code_label }} ↗</a>{% if project.checkpoint_url != '' %} · <a href="{{ project.checkpoint_url }}" target="_blank" rel="noopener">Checkpoints ↗</a>{% endif %}</p>
       </div>
-      <figure class="project-media">
-        <div class="project-art project-art--{{ project.id }}">
+      <figure class="project-media" data-media-state="loading">
+        <div class="project-art project-art--{{ project.id }}" style="aspect-ratio: {{ project.media_ratio | default: '1005 / 369' }}">
         {% if project.media_type == 'video' %}
-        <video src="{{ project.media_src }}" aria-label="{{ project.media_alt | escape }}" autoplay muted loop playsinline preload="metadata"{% if project.clip_end %} data-clip-start="{{ project.clip_start }}" data-clip-end="{{ project.clip_end }}"{% endif %} style="aspect-ratio: {{ project.media_ratio }}"></video>
+        <video src="{{ project.media_src }}" aria-label="{{ project.media_alt | escape }}" autoplay muted loop playsinline preload="metadata"{% if project.poster %} poster="{{ project.poster }}"{% endif %}{% if project.clip_end %} data-clip-start="{{ project.clip_start }}" data-clip-end="{{ project.clip_end }}"{% endif %} style="aspect-ratio: {{ project.media_ratio }}"></video>
         {% else %}
         <img src="{{ project.media_src | relative_url }}" alt="{{ project.media_alt | escape }}" width="1005" height="369" loading="lazy" decoding="async">
         {% endif %}
+        </div>
+        <div class="media-loader" role="status" aria-live="polite">
+          <span class="loader-track" aria-hidden="true"></span>
+          <p class="media-loading-label">Loading…</p>
+          <button class="media-retry" type="button" hidden>Retry</button>
         </div>
       </figure>
     </article>
