@@ -114,9 +114,15 @@ footer p{font-family:var(--display);font-size:20px}
 .project-art--robosyn :is(video,img){filter:url(#project-accent-warm) brightness(.95)}
 .project-art--wrist :is(video,img){filter:url(#project-accent-cool) brightness(.95)}
 
-/* University emblems for the three research experiences. */
-.experience-list{grid-template-columns:repeat(3,minmax(0,1fr));padding-left:0;gap:32px}
-.experience-list article+article{padding-left:28px}
-.experience-list img.institution-emblem{width:64px;height:64px;filter:none;mix-blend-mode:normal}
-@media(max-width:1023px){.experience-list{grid-template-columns:1fr;padding-left:154px}.experience-list article+article{padding:28px 0 0;border-left:0;border-top:1px solid var(--rule)}}
-@media(max-width:767px){.experience-list{padding-left:0}.experience-list img.institution-emblem{width:52px;height:52px}}
+/* Research experience rows: role on the left, advisor and dates on the right. */
+.experience-list{display:block;padding-left:192px;margin-top:24px}
+.experience-list article{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:40px;align-items:center;padding:28px 0}
+.experience-list article+article{padding:28px 0;border:0;border-top:1px solid var(--rule)}
+.experience-role{display:grid;grid-template-columns:64px minmax(0,1fr);gap:24px;align-items:center;min-width:0}
+.experience-role h3{min-width:0;overflow-wrap:anywhere}
+.experience-list img.institution-emblem{width:64px;height:64px;margin:0;filter:none;mix-blend-mode:normal}
+.experience-meta{min-width:0;text-align:right;font-size:16px;line-height:1.55}
+.experience-meta p{margin:0}
+.experience-meta .period{margin-top:10px;font-size:13px}
+@media(max-width:1023px){.experience-list{padding-left:0}.experience-list article{grid-template-columns:minmax(0,1fr) minmax(230px,300px);gap:28px}}
+@media(max-width:767px){.experience-list article{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;padding:24px 0}.experience-list article+article{padding:24px 0}.experience-role{grid-template-columns:1fr;gap:12px}.experience-role h3{font-size:22px;line-height:1.25}.experience-list img.institution-emblem{width:48px;height:48px}.experience-meta{font-size:14px}.experience-meta .period{font-size:12px}}

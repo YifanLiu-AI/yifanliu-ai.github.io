@@ -25,11 +25,14 @@ layout: halftone-homepage
   <div class="experience-list">
     {% for item in site.data.experience %}
     <article>
-      {% if item.logo %}<img class="institution-emblem" src="{{ item.logo | relative_url }}" alt="{{ item.logo_alt | default: item.institution_name | escape }}" width="64" height="64" loading="lazy" decoding="async">{% endif %}
-      <p class="lab">{{ item.lab }}</p>
-      <h3>{{ item.role }}</h3>
-      <p>{{ item.relationship }}: <a href="{{ item.advisor_url }}" target="_blank" rel="noopener">{{ item.advisor }}</a></p>
-      <p class="period">{{ item.period }}</p>
+      <div class="experience-role">
+        {% if item.logo %}<img class="institution-emblem" src="{{ item.logo | relative_url }}" alt="{{ item.logo_alt | default: item.institution_name | escape }}" width="64" height="64" loading="lazy" decoding="async">{% endif %}
+        <h3>{{ item.role }}</h3>
+      </div>
+      <div class="experience-meta">
+        <p>{{ item.relationship }}: <a href="{{ item.advisor_url }}" target="_blank" rel="noopener">{{ item.advisor }}</a></p>
+        <p class="period">{{ item.period }}</p>
+      </div>
     </article>
     {% endfor %}
   </div>
