@@ -74,3 +74,5 @@
 - 2026-10-20：新增同配色 Loading 遮罩，字体与首帧网点准备后自动退出；支持减少动态效果、无 JavaScript 直接显示和 6 秒超时兜底。
 
 - 2026-10-20：经历区标题改为 Intern，与第一条经历并排对齐；三条职位位置改为实际机构英文全称。三个项目媒体独立显示 Loading、失败提示和 Retry。LeHome 复用既有官方原视频，截取原先循环的前 24.3 秒，压缩为 640×360 H.264 并开启 faststart，改由本站提供；两个视频新增静态封面。站点直连与当前 7890 系统代理均返回 HTTP 200，未复现连接关闭。
+
+- 2026-10-20：三段经历改用“左校徽、右书法校名”的黑白横版校标，保持透明底与原始比例。上交来源 https://vi.sjtu.edu.cn/img/logo-s-w.png ，中大来源 https://www.sysu.edu.cn/images/zhuzhanLOGO.png ，华工复用已选定的 scut-logo-trimmed.png 完整横版。第二条保留真实机构 Shenzhen Loop Area Institute 小字。经历列表的校标、导师、日期区域不再显示网点；Projects 标题与第一个项目顶部对齐，窄屏仍上下排列。

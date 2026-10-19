@@ -40,7 +40,7 @@
     let node;
     while ((node = walker.nextNode())) {
       const element = node.parentElement;
-      if (!element || element.closest('canvas,script,h1') || !node.textContent.trim()) continue;
+      if (!element || element.closest('canvas,script,h1,.experience-list') || !node.textContent.trim()) continue;
       if (!element.closest('h2,h3')) continue;
       const style = getComputedStyle(element);
       if (style.display === 'none' || style.visibility === 'hidden') continue;
@@ -89,7 +89,7 @@
     });
     source.restore();
 
-    const headingZones = [...parent.querySelectorAll('h2,h3')].map(element => {
+    const headingZones = [...parent.querySelectorAll('h2,h3')].filter(element => !element.closest('.experience-list')).map(element => {
       const box = element.getBoundingClientRect();
       return {left:box.left-bounds.left,right:box.right-bounds.left,top:box.top-bounds.top,height:box.height};
     });
