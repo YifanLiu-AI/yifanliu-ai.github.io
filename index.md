@@ -25,7 +25,7 @@ layout: halftone-homepage
   <div class="experience-list">
     {% for item in site.data.experience %}
     <article>
-      {% if item.logo %}<img{% if item.institution == 'SCUT' %} class="scut-logo"{% endif %} src="{{ item.logo | relative_url }}" alt="{{ item.institution_name | escape }} logo" width="200" height="62" loading="lazy" decoding="async">{% endif %}
+      {% if item.logo %}<img class="institution-emblem" src="{{ item.logo | relative_url }}" alt="{{ item.logo_alt | default: item.institution_name | escape }}" width="64" height="64" loading="lazy" decoding="async">{% endif %}
       <p class="lab">{{ item.lab }}</p>
       <h3>{{ item.role }}</h3>
       <p>{{ item.relationship }}: <a href="{{ item.advisor_url }}" target="_blank" rel="noopener">{{ item.advisor }}</a></p>

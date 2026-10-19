@@ -113,3 +113,10 @@ footer p{font-family:var(--display);font-size:20px}
 .project-art--lehome :is(video,img){filter:url(#project-accent-warm) brightness(.95)}
 .project-art--robosyn :is(video,img){filter:url(#project-accent-warm) brightness(.95)}
 .project-art--wrist :is(video,img){filter:url(#project-accent-cool) brightness(.95)}
+
+/* University emblems for the three research experiences. */
+.experience-list{grid-template-columns:repeat(3,minmax(0,1fr));padding-left:0;gap:32px}
+.experience-list article+article{padding-left:28px}
+.experience-list img.institution-emblem{width:64px;height:64px;filter:none;mix-blend-mode:normal}
+@media(max-width:1023px){.experience-list{grid-template-columns:1fr;padding-left:154px}.experience-list article+article{padding:28px 0 0;border-left:0;border-top:1px solid var(--rule)}}
+@media(max-width:767px){.experience-list{padding-left:0}.experience-list img.institution-emblem{width:52px;height:52px}}

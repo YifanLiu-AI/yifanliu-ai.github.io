@@ -56,3 +56,5 @@
 - 2026-10-12：顶部仅保留 CV 与 GitHub，移除 News / Experience / Projects 导航及 gmail 链接。
 
 - 2026-10-14：河套学院职位改为 Research Assistant (Full-time)。
+
+- 2026-10-19：新增上交 DengLab RA 经历（Oct. 2026–present），导师为邓志杰副教授；来源：https://thudzj.github.io/ 。三段经历统一使用上交、中大、华工广州国际校区校徽；国际校区图取自官网 logo 左侧校徽，未改字形和配色。同步 GitHub 图文与手机版，保留现有职位和其他内容。国际校区来源：https://www2.scut.edu.cn/_upload/tpl/0c/fa/3322/template3322/images/logo.png 。

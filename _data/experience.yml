@@ -1,3 +1,18 @@
+- lab: Shanghai Jiao Tong University · DengLab
+  institution: SJTU
+  institution_name: Shanghai Jiao Tong University
+  period: Oct. 2026–present
+  advisor: Assoc. Prof. Zhijie Deng
+  advisor_url: https://thudzj.github.io/
+  role: Research Assistant
+  relationship: Advisor
+  summary:
+  initials: SJTU
+  logo: /assets/img/sjtu-emblem-red.png
+  logo_alt: Shanghai Jiao Tong University emblem
+  logo_variant: emblem
+  logo_source: https://www.sjtu.edu.cn/resource/assets/img/svg/Min-logo-pic.svg
+
 - lab: RAPID Lab
   institution: SLAI
   institution_name: Shenzhen Loop Area Institute
@@ -8,9 +23,10 @@
   relationship: Supervisor
   summary:
   initials: RAPID
-  logo: /assets/img/slai-logo-balanced.png
-  logo_variant: wide
-  logo_source: https://www.slai.edu.cn/sites/default/files/2026-03/%E9%A6%96%E9%A1%B5logo_black.png
+  logo: /assets/img/sysu-emblem.webp
+  logo_alt: Sun Yat-sen University emblem
+  logo_variant: emblem
+  logo_source: /assets/img/sysu-emblem.webp
 
 - lab: MIAA Lab
   institution: SCUT
@@ -22,6 +38,7 @@
   relationship: Academic Advisor
   summary:
   initials: MIAA
-  logo: /assets/img/scut-logo-trimmed.png
-  logo_variant: scut-wide
-  logo_source: https://www.scut.edu.cn/_upload/site/01/3b/315/logo.png
+  logo: /assets/img/scut-gzic-emblem.png
+  logo_alt: SCUT Guangzhou International Campus emblem
+  logo_variant: emblem
+  logo_source: https://www2.scut.edu.cn/_upload/tpl/0c/fa/3322/template3322/images/logo.png
