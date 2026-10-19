@@ -126,3 +126,15 @@ footer p{font-family:var(--display);font-size:20px}
 .experience-meta .period{margin-top:10px;font-size:13px}
 @media(max-width:1023px){.experience-list{padding-left:0}.experience-list article{grid-template-columns:minmax(0,1fr) minmax(230px,300px);gap:28px}}
 @media(max-width:767px){.experience-list article{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;padding:24px 0}.experience-list article+article{padding:24px 0}.experience-role{grid-template-columns:1fr;gap:12px}.experience-role h3{font-size:22px;line-height:1.25}.experience-list img.institution-emblem{width:48px;height:48px}.experience-meta{font-size:14px}.experience-meta .period{font-size:12px}}
+
+/* Brief entrance while fonts and the first halftone frame are prepared. */
+html.is-loading{overflow:hidden}
+.page-loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--paper);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility .22s ease}
+.is-loading .page-loader{opacity:1;visibility:visible;pointer-events:auto}
+.loader-content{text-align:center;padding:24px}
+.loader-name{font:44px/1.15 var(--display);letter-spacing:.02em;color:var(--brand-ink)}
+.loader-label{margin-top:16px;font:13px/1.5 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.loader-track{display:block;position:relative;width:144px;height:2px;margin:22px auto 0;background:var(--accent-soft);overflow:hidden}
+.loader-track::after{content:"";position:absolute;inset:0 auto 0 0;width:36%;background:var(--accent);animation:loading-sweep 1.1s ease-in-out infinite alternate}
+@keyframes loading-sweep{to{transform:translateX(180%)}}
+@media(prefers-reduced-motion:reduce){.page-loader{transition:none}.loader-track::after{animation:none;width:100%;opacity:.5}}

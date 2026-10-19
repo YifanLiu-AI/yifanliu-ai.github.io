@@ -211,7 +211,8 @@
       observer.disconnect();
       cancelAnimationFrame(pending);
     }, {once:true});
-  }).catch(() => { /* Keep readable ordinary HTML if fonts or drawing fail. */ });
+  }).catch(() => { /* Keep readable ordinary HTML if fonts or drawing fail. */ })
+    .finally(() => window.dispatchEvent(new Event('homepage-ready')));
 })();
 
 // Loop the selected complete folding episode within the official video file.
