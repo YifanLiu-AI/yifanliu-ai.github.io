@@ -11,7 +11,6 @@ layout: halftone-homepage
   {% if site.avatar %}<img class="portrait" src="{{ site.avatar | relative_url }}" alt="Portrait of {{ site.title }}" width="144" height="144" decoding="async">{% endif %}
 </section>
 
-<div class="overview-grid">
 <section class="news section" aria-labelledby="news">
   <h2 id="news">News</h2>
   <ol class="news-list">
@@ -38,8 +37,6 @@ layout: halftone-homepage
     {% endfor %}
   </div>
 </section>
-
-</div>
 
 <section class="projects section" aria-labelledby="projects">
   <h2 id="projects">Projects</h2>
