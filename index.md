@@ -3,14 +3,15 @@ layout: halftone-homepage
 ---
 
 <section id="about" class="about">
-  <h2>About</h2>
+  <h2 class="visually-hidden">About</h2>
   <div class="intro">
-    <p>I'm a B.Eng. student in the School of Mechanical and Automotive Engineering at <a href="{{ site.affiliation_link }}">SCUT</a>, with an expected graduation date of <strong>June 2028</strong>.</p>
-    <p>My work focuses on bimanual and dexterous manipulation.</p>
+    <p class="research-statement">My work focuses on bimanual and dexterous manipulation.</p>
+    <p class="bio">I'm a B.Eng. student in the School of Mechanical and Automotive Engineering at <a href="{{ site.affiliation_link }}">SCUT</a>, with an expected graduation date of <strong>June 2028</strong>.</p>
   </div>
   {% if site.avatar %}<img class="portrait" src="{{ site.avatar | relative_url }}" alt="Portrait of {{ site.title }}" width="144" height="144" decoding="async">{% endif %}
 </section>
 
+<div class="overview-grid">
 <section class="news section" aria-labelledby="news">
   <h2 id="news">News</h2>
   <ol class="news-list">
@@ -30,13 +31,15 @@ layout: halftone-homepage
         <h3 class="visually-hidden">{{ item.role }}</h3>
       </div>
       <div class="experience-meta">
-        <p>{{ item.relationship }}: <a href="{{ item.advisor_url }}" target="_blank" rel="noopener">{{ item.advisor }}</a></p>
+        <p class="advisor"><span class="advisor-label">{{ item.relationship }}</span><a href="{{ item.advisor_url }}" target="_blank" rel="noopener">{{ item.advisor }}</a></p>
         <p class="period">{{ item.period }}</p>
       </div>
     </article>
     {% endfor %}
   </div>
 </section>
+
+</div>
 
 <section class="projects section" aria-labelledby="projects">
   <h2 id="projects">Projects</h2>
