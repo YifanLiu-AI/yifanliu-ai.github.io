@@ -1,6 +1,5 @@
-/* A continuous page-wide screen for display type and background. Body copy,
-   dates, affiliation and links keep native, high-contrast text for readability.
-   The portrait shares the screen; institutional logos remain clear originals. */
+/* A restrained screen for the masthead, portrait and paper texture.
+   All content headings and body copy use clear native text. */
 (() => {
   const canvas = document.querySelector('#halftone-name');
   if (!canvas) return;
@@ -33,38 +32,6 @@
     source.strokeStyle = '#272b2c';
     source.textBaseline = 'alphabetic';
 
-    // Match actual line wrapping and link/strong ranges, rather than copying
-    // content into a second inaccessible layout with approximate line breaks.
-    const walker = document.createTreeWalker(parent, NodeFilter.SHOW_TEXT);
-    const range = document.createRange();
-    let node;
-    while ((node = walker.nextNode())) {
-      const element = node.parentElement;
-      if (!element || element.closest('canvas,script,h1,.experience-list') || !node.textContent.trim()) continue;
-      if (!element.closest('h2,h3')) continue;
-      const style = getComputedStyle(element);
-      if (style.display === 'none' || style.visibility === 'hidden') continue;
-      source.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
-      const metrics = source.measureText('Hg');
-      const ascent = metrics.fontBoundingBoxAscent || parseFloat(style.fontSize) * .9;
-      for (let i = 0; i < node.textContent.length; i++) {
-        let letter = node.textContent[i];
-        if (/\s/.test(letter)) continue;
-        if (style.textTransform === 'uppercase') letter = letter.toUpperCase();
-        range.setStart(node, i);
-        range.setEnd(node, i + 1);
-        const rect = range.getBoundingClientRect();
-        if (!rect.width || !rect.height) continue;
-        const x = rect.left - bounds.left;
-        const y = rect.top - bounds.top + ascent;
-        source.fillText(letter, x, y);
-        // Keep subpixel strokes in small body type visible after sampling.
-        source.lineWidth = .35;
-        source.strokeText(letter, x, y);
-      }
-    }
-    range.detach();
-
     // The artistic identity is now a compact top-left brand, not a hero block.
     const nameBox = parent.querySelector('.wordmark').getBoundingClientRect();
     const nameTop = nameBox.top - bounds.top;
@@ -89,14 +56,6 @@
     });
     source.restore();
 
-    const headingZones = [...parent.querySelectorAll('h2,h3')].filter(element => !element.closest('.experience-list')).map(element => {
-      const box = element.getBoundingClientRect();
-      return {left:box.left-bounds.left,right:box.right-bounds.left,top:box.top-bounds.top,height:box.height};
-    });
-    const projectTitleZones = [...parent.querySelectorAll('.project-list h3')].map(element => {
-      const box = element.getBoundingClientRect();
-      return {left:box.left-bounds.left,right:box.right-bounds.left,top:box.top-bounds.top,bottom:box.bottom-bounds.top};
-    });
     let photo;
     if (photoReady) {
       const box = portrait.getBoundingClientRect();
@@ -123,24 +82,15 @@
           const py = Math.max(0, Math.min(height - 1, Math.floor(y + dy * step)));
           mask += pixels[(py * width + px) * 4 + 3] / 1275;
         }
-        // Project titles receive their own finer screen below.
-        if (projectTitleZones.some(zone => x>=zone.left && x<=zone.right && y>=zone.top && y<=zone.bottom)) mask = 0;
         // A single continuous background field passes through ALL type.
         const column = .5 + .5 * Math.sin(x * .032 + .35 * Math.sin(y * .012));
         const broad = .5 + .5 * Math.sin(x * .009 - y * .005);
-        const paperTone = .008 + .022 * column + .011 * broad;
+        const paperTone = .004 + .010 * column + .005 * broad;
         let inkGain = .82 + .06 * column + .03 * broad;
         if (y >= nameTop && y <= nameTop + nameBox.height + 16 && x >= nameLeft && x <= nameLeft + nameBox.width) {
           const rowTop = nameTop + nameBox.height*.1;
           const progress = Math.max(0,Math.min(1,(y-rowTop)/(fontSize*.78)));
           inkGain *= 1 - .55*progress;
-        } else if (mask > .01) {
-          for (const zone of headingZones) {
-            if (x>=zone.left && x<=zone.right && y>=zone.top && y<=zone.top+zone.height) {
-              inkGain *= 1-.35*Math.max(0,Math.min(1,(y-zone.top)/zone.height));
-              break;
-            }
-          }
         }
         let tone = paperTone + Math.pow(mask, .65) * inkGain;
         let photoDarkness;
@@ -157,7 +107,7 @@
           ? step*.48*Math.sqrt(tone)
           : step*(.08 + .40*Math.sqrt(photoDarkness));
         if (photoDarkness === undefined) {
-          // Brand and every screened heading share the same rose ink.
+          // The masthead uses rose ink.
           // Unmasked background dots remain neutral; portrait tones stay intact.
           context.fillStyle = mask > .01 ? brandInk : '#272b2c';
         }
@@ -168,26 +118,6 @@
         context.beginPath();
         context.arc(x, y, radius, 0, Math.PI * 2);
         context.fill();
-      }
-    }
-    // Smaller project headings need closer dots to preserve their letterforms.
-    const titleStep = mobile ? 1.6 : 1.8;
-    context.fillStyle = brandInk;
-    for (const zone of projectTitleZones) {
-      for (let y = Math.floor(zone.top/titleStep)*titleStep + titleStep/2; y <= zone.bottom; y += titleStep) {
-        for (let x = Math.floor(zone.left/titleStep)*titleStep + titleStep/2; x <= zone.right; x += titleStep) {
-          let mask = 0;
-          for (const [dx,dy] of samples) {
-            const px = Math.max(0,Math.min(width-1,Math.floor(x+dx*titleStep)));
-            const py = Math.max(0,Math.min(height-1,Math.floor(y+dy*titleStep)));
-            mask += pixels[(py*width+px)*4+3]/1275;
-          }
-          if (mask < .01) continue;
-          const gain = .94 - .12*(y-zone.top)/Math.max(1,zone.bottom-zone.top);
-          context.beginPath();
-          context.arc(x,y,titleStep*.49*Math.sqrt(Math.pow(mask,.65)*gain),0,Math.PI*2);
-          context.fill();
-        }
       }
     }
     lastSize = sizeKey;
