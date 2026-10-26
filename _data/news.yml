@@ -1,3 +1,8 @@
+- date: "2026.10.26"
+  logo: /assets/img/neurips-logo-vector.svg
+  logo_name: NeurIPS
+  text: Our team advanced to the <strong class="news-highlight">finals</strong> of the <strong class="news-highlight">NeurIPS 2026 RoboSyn Challenge</strong>, with me serving as <strong class="news-highlight">Team Co-lead</strong>.
+
 - date: "2026.09.16"
   logo: /assets/img/icra27-logo-transparent.png
   transparent_logo: true
@@ -9,11 +14,6 @@
   logo_name: China Association for Public Safety (organizer)
   text: Won <strong class="news-highlight">National Third Prize</strong> in the 12th National Safety Innovation Competition.
   title: 12th National College Student Safety Science and Engineering Practice and Innovation Competition
-
-- date: "2026.08"
-  logo: /assets/img/neurips-logo-vector.svg
-  logo_name: NeurIPS
-  text: Participated in the <strong class="news-highlight">NeurIPS 2026 RoboSyn Challenge</strong> as <strong class="news-highlight">Team Co-lead</strong>.
 
 - date: "2026.04.30"
   logo: /assets/img/icra26-logo.webp
