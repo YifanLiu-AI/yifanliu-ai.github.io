@@ -2,7 +2,7 @@
   {
     "id": "robosyn",
     "title": "NeurIPS 2026 RoboSyn Challenge",
-    "meta": "August–October 2026 · Finalist",
+    "meta": "August–October 2026 · MIAA-HCC · Simulation: Global #11 · Finalist",
     "authors": "Zepeng Lin, Yifan Liu, Wei Shan, Yinuo Ge, Muyang Li",
     "url": "https://robosyn-bench.net/",
     "code_url": "https://github.com/innovationasuna/RoboSynChallenge_MIAA-HCC",
@@ -12,7 +12,7 @@
     "media_src": "https://robosyn-bench.net/static/assets/real-evaluation-videos/cobotmagic_Real_sample_loading.mp4",
     "media_alt": "Sample loading",
     "media_ratio": "16 / 9",
-    "summary": "Competing as MIAA-HCC. pi0.5 SFT; perception and planning with policy residual corrections.",
+    "summary": "Team MIAA-HCC ranked 11th globally in the simulation competition and advanced to the finals. pi0.5 SFT; perception and planning with policy residual corrections.",
     "poster": "/assets/img/robosyn-sample-loading-poster.webp"
   },
   {
@@ -32,7 +32,7 @@
   {
     "id": "lehome",
     "title": "ICRA 2026 LeHome Challenge",
-    "meta": "November 2025–May 2026 · Ebtech-MIAA · Final rank: #17",
+    "meta": "November 2025–May 2026 · Ebtech-MIAA · Simulation: Global #17",
     "authors": "",
     "url": "https://lehome-challenge.com/",
     "code_url": "https://github.com/YifanLiu-AI/lehome-challenge",
@@ -42,7 +42,7 @@
     "media_src": "/assets/video/lehome-folding.mp4",
     "media_alt": "Garment folding",
     "media_ratio": "16 / 9",
-    "summary": "Competed as Ebtech-MIAA. X-VLA data flywheel and policy tuning through a closed-loop pipeline with SR feedback.",
+    "summary": "Team Ebtech-MIAA ranked 17th globally in the simulation competition. X-VLA data flywheel and policy tuning through a closed-loop pipeline with SR feedback.",
     "poster": "/assets/img/lehome-folding-poster.webp"
   }
 ]
