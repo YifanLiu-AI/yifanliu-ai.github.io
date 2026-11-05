@@ -1,5 +1,5 @@
 # Basic Information
-title: Yi Fan
+title: YIFAN LIU
 position: Research Student
 affiliation: South China University of Technology
 affiliation_link: https://www.scut.edu.cn/en/
@@ -34,7 +34,7 @@ enable_footnote: false
 
 # Auto Dark Mode
 # You may use the option to disable the automatic dark theme
-auto_dark_mode: true
+auto_dark_mode: false
 
 # Font
 # You can use this option to choose between Serif or Sans Serif fonts.

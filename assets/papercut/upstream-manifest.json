@@ -1,0 +1,39 @@
+{
+  "project": "OpenSlide / Papercut Zine Fest",
+  "repository": "https://github.com/open-slide/open-slide",
+  "commit": "4f09a4e4875a0be7fb1083932709073af6377092",
+  "source": "apps/demo/slides/papercut-zine-fest/index.tsx",
+  "license": "MIT © 2026 Yiwei Ho",
+  "algorithms": [
+    "rng",
+    "torn",
+    "tapeClip",
+    "dots",
+    "dotsDiag"
+  ],
+  "components": {
+    "RisoText": "headline ink layers and source registration keyframes",
+    "Scrap": "seeded torn edge, offset dot shadow, paper tones",
+    "Tape": "source tooth geometry, dot fill and composition-specific angles",
+    "Badge": "Intern color band and cutout, no tape",
+    "RectStamp": "ranking double outline and Rubik Mono One",
+    "RoundStamp": "portrait stamp"
+  },
+  "website_adaptations": [
+    "Native HTML/CSS/JavaScript on existing Jekyll",
+    "Normal document flow and responsive breakpoint layouts",
+    "Geometry scaled to responsive element bounds",
+    "Darker text for body contrast",
+    "User-selected hero-only intermittent beat",
+    "No general scroll text reveal or card animation",
+    "Tint dot opacity reduced for small body copy"
+  ],
+  "composition_presets": [
+    "cover",
+    "numbers",
+    "voices",
+    "access",
+    "facts",
+    "close"
+  ]
+}
