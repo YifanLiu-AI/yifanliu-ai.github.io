@@ -58,18 +58,6 @@
   window.addEventListener("pageshow", () => scheduleBeat(true));
   scheduleBeat(true);
 
-  const portraitButton = document.querySelector(".portrait-toggle");
-  portraitButton.hidden = false;
-  portraitButton.addEventListener("click", () => {
-    const original = document
-      .querySelector(".portrait-print")
-      .classList.toggle("is-original");
-    portraitButton.setAttribute("aria-pressed", String(original));
-    portraitButton.textContent = original
-      ? "Two-color print ↙"
-      : "Original photo ↗";
-  });
-
   // Paper outlines follow actual sizes; tape artwork is static for scroll stability.
   root.style.setProperty(
     "--pink-tint",

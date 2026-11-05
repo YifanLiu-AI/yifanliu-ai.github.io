@@ -6,14 +6,12 @@ layout: papercut-homepage
     <h1 id="name" aria-label="YIFAN LIU"><span class="riso" data-ink="YIFAN LIU">YIFAN LIU</span></h1>
     <p class="research-statement">My work focuses on <strong>bimanual</strong><br class="desktop-break"> and <strong>dexterous manipulation.</strong></p>
     <div class="bio-line"><p>I'm a B.Eng. student in the School of Mechanical and Automotive Engineering at <a href="{{ site.affiliation_link }}">SCUT</a>, with an expected graduation date of <strong>June 2028</strong>.</p></div>
-    <a class="paper-button" href="#projects">Explore projects <span aria-hidden="true">↘</span></a>
   </div>
   <div class="portrait-collage">
     <img class="halftone-disc" src="{{ '/assets/papercut/halftone-disc.svg' | relative_url }}" alt="" width="600" height="600" aria-hidden="true">
     <figure class="portrait-print scrap">
       <span class="tape tape--pink tape--cover-a" aria-hidden="true"></span><span class="tape tape--pink tape--cover-b" aria-hidden="true"></span>
       <div class="portrait-image"><img src="{{ site.avatar | relative_url }}" alt="Portrait of YIFAN LIU" width="1024" height="1024" fetchpriority="high"></div>
-      <figcaption><button type="button" class="portrait-toggle" aria-pressed="false" hidden>Original photo ↗</button></figcaption>
     </figure>
   </div>
   <div class="cut-line" aria-hidden="true"><svg viewBox="0 0 64 40"><circle cx="10" cy="9" r="7"/><circle cx="10" cy="31" r="7"/><path d="M16 13 L58 30 M16 27 L58 10"/></svg></div>
@@ -22,10 +20,15 @@ layout: papercut-homepage
   <div class="section-top"><h2 aria-label="News" id="news" class="riso" data-ink="NEWS">NEWS</h2></div>
   <ol class="news-grid">
     {% for item in site.data.news %}
-    <li class="news-scrap scrap" data-paper-seed="{{ forloop.index | plus: 20 }}">
-      {% if forloop.first %}<span class="tape tape--pink tape--numbers-a" aria-hidden="true"></span>{% elsif forloop.last %}<span class="tape tape--blue tape--numbers-b" aria-hidden="true"></span>{% endif %}
-      <div class="news-meta"><time datetime="{{ item.date | replace: '.', '-' }}">{{ item.date }}</time><img src="{{ item.logo | relative_url }}" alt="{{ item.logo_name | escape }}" width="92" height="32" loading="lazy"></div>
-      <p{% if item.title %} title="{{ item.title | escape }}"{% endif %}>{{ item.text }}</p>
+    {% assign news_date = item.date | replace: '.', '-' %}
+    {% assign alternate = forloop.index0 | modulo: 2 %}
+    <li class="news-scrap scrap{% if alternate == 0 %} news-scrap--hot{% endif %}" data-paper-seed="{{ forloop.index | plus: 70 }}">
+      <time class="news-date" datetime="{{ news_date }}" aria-label="{{ news_date | date: '%B %-d, %Y' }}"><span>{{ news_date | date: '%b' | upcase }}</span><b>{{ news_date | date: '%d' }}</b><small>{{ news_date | date: '%Y' }}</small></time>
+      <div class="news-copy">
+        <div class="news-heading"><h3{% if item.title %} title="{{ item.title | escape }}"{% endif %}>{{ item.headline | escape }}</h3><img src="{{ item.logo | relative_url }}" alt="{{ item.logo_name | escape }}" width="80" height="32" loading="lazy"></div>
+        <p class="news-result">{{ item.result | escape }}</p>
+        <p class="news-detail">{{ item.detail | escape }}</p>
+      </div>
     </li>
     {% endfor %}
   </ol>

@@ -17,7 +17,8 @@
     "Tape": "Static SVG using upstream tooth geometry and 4px dot pattern; no CSS blend/clip compositing or runtime measurement",
     "Badge": "Intern color band and cutout, no tape",
     "RectStamp": "ranking double outline and Rubik Mono One",
-    "RoundStamp": "portrait stamp"
+    "RoundStamp": "portrait stamp",
+    "Workshop Ticket": "News option B: separate date column, perforation and alternating reversed ink, responsive event-first hierarchy"
   },
   "website_adaptations": [
     "Native HTML/CSS/JavaScript on existing Jekyll",
