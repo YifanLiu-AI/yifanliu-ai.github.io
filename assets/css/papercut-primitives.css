@@ -87,7 +87,7 @@
   position: absolute;
   inset: 0;
   translate: 6px 7.3px;
-  background: var(--paper-dots);
+  background: var(--paper-dots, radial-gradient(circle, var(--blue) 1px, transparent 1.8px) 0 0 / 4px 4px);
   clip-path: var(--torn-outline, inset(0));
   mix-blend-mode: multiply;
   opacity: 0.55;
@@ -111,14 +111,14 @@
   top: var(--tape-top, auto);
   bottom: var(--tape-bottom, auto);
   rotate: var(--tape-rotation, 0deg);
-  clip-path: var(--tape-clip);
-  background: var(--tape-dots), rgba(255, 255, 255, 0.35);
-  mix-blend-mode: multiply;
+  /* Baked upstream teeth and dots: no JS sizing or CSS blend/clip layer. */
+  background: url("../papercut/textures/tape-pink.svg") center / 100% 100% no-repeat;
   z-index: 6;
   pointer-events: none;
 }
 .tape--blue {
   --tape-color: var(--blue);
+  background-image: url("../papercut/textures/tape-blue.svg");
 }
 .tape--pink {
   --tape-color: var(--pink);

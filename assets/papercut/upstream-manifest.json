@@ -14,7 +14,7 @@
   "components": {
     "RisoText": "headline ink layers and source registration keyframes",
     "Scrap": "seeded torn edge, offset dot shadow, paper tones",
-    "Tape": "source tooth geometry, dot fill and composition-specific angles",
+    "Tape": "Static SVG using upstream tooth geometry and 4px dot pattern; no CSS blend/clip compositing or runtime measurement",
     "Badge": "Intern color band and cutout, no tape",
     "RectStamp": "ranking double outline and Rubik Mono One",
     "RoundStamp": "portrait stamp"
@@ -25,8 +25,8 @@
     "Geometry scaled to responsive element bounds",
     "Darker text for body contrast",
     "User-selected hero-only intermittent beat",
-    "No general scroll text reveal or card animation",
-    "Tint dot opacity reduced for small body copy"
+    "Tint dot opacity reduced for small body copy",
+    "Desktop-only paper entrances; phone paper layers stay stationary while scrolling"
   ],
   "composition_presets": [
     "cover",

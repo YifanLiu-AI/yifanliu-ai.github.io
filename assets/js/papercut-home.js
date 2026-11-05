@@ -70,7 +70,7 @@
       : "Original photo ↗";
   });
 
-  // Official Scrap/Tape geometry, recalculated at the actual responsive size.
+  // Paper outlines follow actual sizes; tape artwork is static for scroll stability.
   root.style.setProperty(
     "--pink-tint",
     `${Papercut.dots("rgba(255,72,176,.3)", 6, (1.45 * 2) / 3)}, var(--sheet)`,
@@ -80,25 +80,11 @@
     `${Papercut.dotsDiag("rgba(0,120,191,.22)", 8, (1.25 * 2) / 3)}, var(--sheet)`,
   );
   const scraps = [...document.querySelectorAll(".scrap")];
-  const tapes = [...document.querySelectorAll(".tape")];
   const redraw = (element) => {
     const width = element.offsetWidth,
       height = element.offsetHeight;
-    if (element.classList.contains("tape")) {
-      element.style.setProperty(
-        "--tape-clip",
-        Papercut.tapeClip(width, height),
-      );
-      element.style.setProperty(
-        "--tape-dots",
-        Papercut.dots(
-          "var(--tape-color)",
-          4,
-          element.classList.contains("tape--blue") ? 1.07 : 1.33,
-        ),
-      );
-      return;
-    }
+    // A suspended/hidden page may briefly report zero; retain its last outline.
+    if (width <= 0 || height <= 0) return;
     const seed = Number(
       element.dataset.paperSeed || scraps.indexOf(element) + 7,
     );
@@ -129,14 +115,15 @@
     backing.setAttribute("aria-hidden", "true");
     scrap.prepend(backing);
   });
-  [...scraps, ...tapes].forEach((element) => {
+  scraps.forEach((element) => {
     redraw(element);
     paperResize?.observe(element);
   });
   if (!paperResize)
     window.addEventListener("resize", () =>
-      [...scraps, ...tapes].forEach(redraw),
+      scraps.forEach(redraw),
     );
+  window.addEventListener("pageshow", () => scraps.forEach(redraw));
 
   // Read the actual heading positions, including after details expand or a
   // direct hash jump. Intersection entries alone can leave a stale selection.
