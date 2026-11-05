@@ -66,3 +66,7 @@ Jekyll 构建、两个 JavaScript 文件语法检查和 git diff 空白检查通
 - 按用户追加要求删除 Original photo 和 Explore projects，移除照片切换脚本及相关样式，避免空节点阻断后续交互。
 - Jekyll 构建、JS 语法和 diff 检查通过；内置浏览器 1280、768、390、320px 无横向溢出，News 无文字溢出。媒体展开、Esc 关闭与焦点返回正常，浏览器无 JS 错误。
 - 截图：外部输出目录 news-options-20261105/b-integrated-desktop.jpg、b-integrated-mobile.jpg。发布时以本次 Git 提交与 Pages 部署记录为准。
+
+## 上海交大日期（2026-11-05）
+
+- 按用户要求，上海交大经历日期由 `Oct. 2026–present` 改为 `Oct. 2026`；同步 GitHub 资料页的桌面／手机 SVG、替代文字和纯文字版。
