@@ -849,17 +849,16 @@ body.dialog-open {
 }
 @media (max-width: 767px) {
   html {
-    scroll-padding-top: 106px;
+    scroll-padding-top: 74px;
   }
   .masthead {
-    height: 88px;
+    height: 56px;
     padding: 10px 24px 9px;
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 3px 12px;
+    grid-template-columns: minmax(0, 1fr);
   }
   .wordmark {
-    font-size: 30px;
+    display: none;
   }
   .site-tools {
     grid-column: 2;
@@ -872,7 +871,7 @@ body.dialog-open {
   }
   nav {
     grid-column: 1/-1;
-    grid-row: 2;
+    grid-row: 1;
     justify-content: space-between;
     gap: 16px;
     margin: 0;
